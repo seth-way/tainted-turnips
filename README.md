@@ -28,7 +28,7 @@ A react-based, movie app that allows users to view, filter and discover movie ti
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
 
-This project was built by [Marshall Hotaling](https://github.com/marshallhotaling) & [Seth Way](https://github.com/seth-way)
+This project was built by [Marshall Hotaling](https://github.com/marshallhotaling) & [Seth Way](https://github.com/seth-way).
 
 ### Learning Goals:
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
