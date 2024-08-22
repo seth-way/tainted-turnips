@@ -1,3 +1,32 @@
+:root {
+  /*-- colors --*/
+  --yellow: #fccc0f;
+  --purple: #9b5094;
+  --blue: #4973b8;
+  --green: #73a950;
+  /*-- layout --*/
+  --bg: #0c1419;
+  --bg-2: #23272f;
+
+  --text: #ffffff;
+  --text-2: #b3b3b3;
+
+  --primary: var(--purple);
+  --secondary: var(--yellow);
+  --accent: var(--blue);
+  --alt: var(--green);
+}
+
+*::-webkit-scrollbar {
+  background-color: var(--bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--bg);
+  box-shadow: inset rgb(from var(--text) r g b / 40%) 0 0 0.1rem 0.05rem,
+    rgb(from var(--text-2) r g b / 40%) 0 0 0.5rem 0.1rem;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +34,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+  color: var(--text);
 }
 
 code {

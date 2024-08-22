@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  /* delete after preview */
+  .demo {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+
+    span {
+      padding: 1rem;
+      background: var(--bg-2);
+      border-radius: 3px;
+    }
+
+    .d1 {
+      border: thick solid var(--primary);
+    }
+
+    .d2 {
+      border: thick solid var(--secondary);
+      color: var(--text-2);
+    }
+
+    .d3 {
+      border: thick solid var(--accent);
+    }
+
+    .d4 {
+      border: thick solid var(--alt);
+      color: var(--text-2);
+    }
+  }
+}
+
