@@ -13,6 +13,7 @@ function App() {
 
   return (
     <main className='App'>
+      <h1>Tainted Turnips</h1>
       <div className="demo">
         <span className="d1">--primary (color), --text</span>
         <span className="d2">--secondary, --text-2</span>
