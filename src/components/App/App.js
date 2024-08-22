@@ -6,6 +6,7 @@ import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
 
+import ColorsDemo from '../ColorsDemo/ColorsDemo';
 import movieData from '../../data/movieData';
 
 function App() {
@@ -14,12 +15,7 @@ function App() {
   return (
     <main className='App'>
       <h1>Tainted Turnips</h1>
-      <div className="demo">
-        <span className="d1">--primary (color), --text</span>
-        <span className="d2">--secondary, --text-2</span>
-        <span className="d3">--accent, --text</span>
-        <span className="d4">--alt, --text-2</span>
-      </div>
+      <ColorsDemo />
       <AllMovies allMovies={allMovies} />
     </main>
   );
