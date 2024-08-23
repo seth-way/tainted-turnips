@@ -15,8 +15,10 @@ function App() {
   return (
     <main className='App'>
       <h1>Tainted Turnips</h1>
-      <ColorsDemo />
-      <AllMovies allMovies={allMovies} />
+      {/*<ColorsDemo />*/}
+      <AllMovies allMovies={allMovies} title='All Movies' />
+      <hr />
+      <SingleMovie movie={singleMovie}/>
     </main>
   );
 }

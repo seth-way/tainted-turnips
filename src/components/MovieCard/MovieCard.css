@@ -1,0 +1,38 @@
+/* sets aspect reatio as well as limit to a property */
+.movie-card {
+  border: thin solid pink;
+  margin: 1rem;
+  width: clamp(100px, 10vw, 200px);
+  height: clamp(200px, 20vw, 400px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .img-wrapper {
+    width: 95%;
+    aspect-ratio: 3 / 2;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .rating {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.25rem;
+
+    height: 1rem;
+    width: 90%;
+
+    svg {
+      height: 100%;
+      width: auto;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
