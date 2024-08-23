@@ -1,19 +1,70 @@
-/* sets aspect reatio as well as limit to a property */
+@property --bg-angle {
+  initial-value: 120deg;
+  inherits: false;
+  syntax: '<angle>';
+}
+
 .movie-card {
-  border: thin solid pink;
-  margin: 1rem;
-  width: clamp(100px, 10vw, 200px);
-  height: clamp(200px, 20vw, 400px);
-  overflow: hidden;
+  background: linear-gradient(
+    var(--bg-angle),
+    var(--secondary) 0 5%,
+    var(--accent) 15% 85%,
+    var(--alt) 95% 100%
+  );
+
+  border-radius: 10px;
+  padding: 0.35rem;
+  margin: 1rem 0.5rem;
+  width: clamp(75px, 12vw, 190px);
+  height: clamp(158px, 26vw, 395px);
+  transform: translate3d(0, 0, 0.1px);
+  z-index: 1;
+  position: relative;
+  background-size: 100% 100%;
+  animation: rotate-bg 44s linear infinite;
+}
+
+.movie-card:hover {
+  cursor: pointer;
+
+  .img-wrapper > img {
+    transform: scale(1.03);
+  }
+
+  .title {
+    color: var(--text-2);
+  }
+}
+
+.movie-card::after,
+.card-inside {
+  border-radius: inherit;
+  content: '';
+  inset: 2px;
+  position: absolute;
+}
+
+.card-inside {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.25rem;
+  border-radius: inherit;
+  overflow: hidden;
+  justify-content: flex-start;
+  background: var(--bg);
+  z-index: 2;
+  padding: 0.2rem;
 
   .img-wrapper {
     width: 95%;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 0.25rem;
 
     img {
+      transition: transform 0.4s ease-in-out;
       height: 100%;
       width: 100%;
     }
@@ -22,17 +73,65 @@
   .rating {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     gap: 0.25rem;
-
-    height: 1rem;
+    height: 6%;
     width: 90%;
+    padding-left: 0.25rem;
 
-    svg {
+    img {
       height: 100%;
       width: auto;
     }
+
     p {
+      font-size: clamp(0.6rem, 1.25vw, 1.25rem);
       margin: 0;
+      color: var(--primary);
     }
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    height: 20%;
+    max-width: 100%;
+    padding: 0 0.25rem;
+    transition: all 0.6s ease-in-out;
+
+    h3 {
+      text-align: center;
+      margin: 0;
+      font-size: clamp(0.5rem, 1.5vw, 1.5rem);
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.movie-card::after {
+  background: inherit;
+  inset: -10px;
+  scale: 0.8;
+  filter: blur(30px) brightness(0.5) contrast(0.5) saturate(1);
+  z-index: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.movie-card:hover::after {
+  scale: 0.9;
+  filter: blur(30px) brightness(0.7) contrast(1) saturate(1);
+}
+
+@keyframes rotate-bg {
+  0% {
+    --bg-angle: 0deg;
+  }
+  100% {
+    --bg-angle: 720deg;
   }
 }
