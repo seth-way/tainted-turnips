@@ -1,34 +1,23 @@
 import './SingleMovie.css';
+import Slide from '../Slide/Slide';
+import { convertToCurrency } from '../../utils';
 
-export default function SingleMovie(props) {
-  const movie = props.movie;
-  const { poster_path, title } = movie;
-
+export default function SingleMovie({ movie }) {
+  const { release_date, overview, budget, revenue } = movie;
   return (
-    <div class='cosenMovieView'>
-      <div className='img-wrapper'>
-        <img src={poster_path} alt={`${title} movie poster`} />
+    <div class='single-movie-view'>
+      <Slide movie={movie} />
+      <div class='single-movie-description'>
+        <div class='overview'>
+          <h4>Description</h4>
+          <p class='single-overview'>{overview}</p>
+        </div>
+        <div class='mini-description'>
+          <p>{release_date}</p>
+          <p class='single-budget'>{convertToCurrency(budget)}</p>
+          <p class='single-revenue'>{convertToCurrency(revenue)}</p>
+        </div>
       </div>
     </div>
   );
 }
-
-/*
-  singleMovie: {
-    id: 1,
-    title: 'Fake Movie Title',
-    poster_path:
-      'https://image.tmdb.org/t/p/original//7G2VvG1lU8q758uOqU6z2Ds0qpA.jpg',
-    backdrop_path:
-      'https://image.tmdb.org/t/p/original//oazPqs1z78LcIOFslbKtJLGlueo.jpg',
-    release_date: '2019-12-04',
-    overview:
-      'Some overview that is full of buzzwords to attempt to entice you to watch this movie! Explosions! Drama! True love! Robots! A cute dog!',
-    average_rating: 6,
-    genres: ['Drama'],
-    budget: 63000000,
-    revenue: 100853753,
-    runtime: 139,
-    tagline: "It's a movie!",
-  },
-  */

@@ -1,0 +1,10 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#nuka-carousel {
+  max-width: min(100%, 1200px);
+}

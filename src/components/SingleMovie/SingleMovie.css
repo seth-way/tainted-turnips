@@ -1,0 +1,40 @@
+.single-movie-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.single-movie-description {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 3rem);
+  max-width: 900px;
+}
+
+.overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  max-width: 400px;
+}
+
+/* .single-overview{
+    display: flex;
+    text-align: center;
+    height: 50px;
+    width: 570px;
+} */
+.mini-description {
+  display: flex;
+  text-align: center;
+  /* height: 50px; */
+  flex-direction: column;
+  width: min(400px, 80vw);
+}
+.single-release-date {
+}
+
+.single-budget {
+}
+.single-revenue {
+}

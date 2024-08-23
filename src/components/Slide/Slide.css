@@ -1,0 +1,63 @@
+.slide {
+  min-width: min(100%, 1200px);
+  width: min(100%, 1200px);
+  height: min(calc(100vw * 433 / 771), 673px);
+  position: relative;
+  background-size: cover;
+  z-index: 3;
+
+  .tagline {
+    text-align: right;
+    padding: clamp(0.25rem, 1.75vw, 1rem);
+    margin: 0;
+    margin-bottom: 15%;
+    font-size: clamp(0.6rem, 1.75vw, 1.25rem);
+  }
+
+  h2 {
+    text-align: left;
+    padding-left: clamp(0.25rem, 1.75vw, 1rem);
+    text-transform: uppercase;
+    font-size: clamp(0.6rem, 5vw, 3rem);
+    margin: 0;
+    margin-bottom: 1%;
+  }
+
+  .show-info {
+    height: 6%;
+    display: flex;
+    align-items: center;
+    padding-left: clamp(0.25rem, 1.75vw, 1rem);
+    font-size: clamp(0.6rem, 1.75vw, 1.25rem);
+  }
+
+  .rating {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.25rem;
+    height: 100%;
+    padding-left: 0.25rem;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+
+    p {
+      
+      margin: 0;
+      color: var(--primary);
+    }
+  }
+}
+
+.backdrop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
