@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Slide from '../Slide/Slide';
 import { convertToCurrency } from '../../utils';
 import PropTypes from "prop-types";
+import ErrorMessage from "../Error /ErrorMessage";
 
  function SingleMovie({ movieId, handleClick }) {
   const [movie, setMovie] = useState(null);
@@ -13,15 +14,26 @@ import PropTypes from "prop-types";
     const URL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/';
     try {
       const movieRes = await fetch(URL + movieId);
+        if (!movieRes.ok) {
+            const error = new Error(movieRes.statusText)
+            error.code = movieRes.status
+            throw error;
+        }
       const { movie } = await movieRes.json();
       setMovie(movie);
       const videosRes = await fetch(URL + movieId + '/videos');
+        if (!videosRes.ok) {
+            const error = new Error(videosRes.statusText)
+            error.code = videosRes.status
+            throw error;
+        }
       const { videos } = await videosRes.json();
       setVideos(videos);
     } catch (err) {
-      console.error(err);
-      setError(err.message);
+        console.error(err)
+      setError(err);
     }
+
   };
 
   useEffect(() => {
@@ -33,7 +45,7 @@ import PropTypes from "prop-types";
     }
   }, [movieId]);
 
-  if (error) return <h2>{`Error: ${error}`}</h2>;
+  if (error) return <ErrorMessage error={error}/>;
   if (!movie) return <h2>loading movie...</h2>;
 
   const { release_date, overview, budget, revenue } = movie;

@@ -16,7 +16,7 @@ function AllMovies({ allMovies, handleClick }) {
         setCarousel(movies);
       } catch (err) {
         console.error(err);
-        setError(err.message);
+        setError(err);
       }
     };
 
