@@ -2,8 +2,9 @@ import './SingleMovie.css';
 import { useState, useEffect } from 'react';
 import Slide from '../Slide/Slide';
 import { convertToCurrency } from '../../utils';
+import PropTypes from "prop-types";
 
-export default function SingleMovie({ movieId, handleClick }) {
+ function SingleMovie({ movieId, handleClick }) {
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
@@ -54,3 +55,8 @@ export default function SingleMovie({ movieId, handleClick }) {
     </div>
   );
 }
+SingleMovie.propTypes ={
+  movieId:PropTypes.number.isRequired,
+  handleClick:PropTypes.func.isRequired
+}
+export default SingleMovie

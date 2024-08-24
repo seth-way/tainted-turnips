@@ -1,5 +1,6 @@
 import './Footer.css';
-
-export default function Footer() {
+import PropTypes from 'prop-types';
+ function Footer() {
   return <>Footer Component</>;
 }
+export default Footer;

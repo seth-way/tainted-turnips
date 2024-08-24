@@ -1,6 +1,8 @@
 import './HeroCarousel.css';
 import { Carousel, useCarousel } from 'nuka-carousel';
 import Slide from '../Slide/Slide';
+import PropTypes from "prop-types";
+import AllMovies from "../AllMovies/AllMovies";
 
 export const CustomDots = () => {
   const { totalPages, currentPage, goToPage } = useCarousel();
@@ -26,7 +28,7 @@ export const CustomDots = () => {
   );
 };
 
-export default function HeroCarousel({ movies, handleClick }) {
+function HeroCarousel({ movies, handleClick }) {
   return (
     <div className='carousel'>
       <Carousel
@@ -43,3 +45,8 @@ export default function HeroCarousel({ movies, handleClick }) {
     </div>
   );
 }
+HeroCarousel.propTypes = {
+  movies: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired,
+}
+export default HeroCarousel;

@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import MovieCardsContainer from '../MovieCardsContainer/MovieCardsContainer';
 import { getRecentMovies, getMoviesData } from '../../utils/movies';
-
-export default function AllMovies({ allMovies, handleClick }) {
+import PropTypes from 'prop-types';
+function AllMovies({ allMovies, handleClick }) {
   const [carouselMovies, setCarousel] = useState([]);
   const [error, setError] = useState(null);
 
@@ -35,3 +35,8 @@ export default function AllMovies({ allMovies, handleClick }) {
     </>
   );
 }
+AllMovies.propTypes = {
+  allMovies: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired,
+}
+export default AllMovies;
