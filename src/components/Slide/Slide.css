@@ -3,6 +3,8 @@
   width: min(100%, 1200px);
   height: min(calc(100vw * 433 / 771), 673px);
   position: relative;
+  display: flex;
+  flex-direction: column;
   background-size: cover;
   z-index: 3;
 
@@ -72,6 +74,20 @@
 
   .genres {
     font-style: italic;
+  }
+
+  button.more-info {
+    font-weight: 700;
+    border: 2px solid var(--primary);
+    border-radius: 5px;
+    padding: 0.4rem 0.8rem;
+    align-self: flex-start;
+    margin-top: clamp(0.25rem, 1.75vw, 1rem);
+    margin-left: clamp(0.25rem, 1.75vw, 1rem);
+  }
+
+  button.more-info:hover {
+    cursor: pointer;
   }
 }
 

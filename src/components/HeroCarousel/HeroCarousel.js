@@ -26,7 +26,7 @@ export const CustomDots = () => {
   );
 };
 
-export default function HeroCarousel({ movies }) {
+export default function HeroCarousel({ movies, handleClick }) {
   return (
     <div className='carousel'>
       <Carousel
@@ -37,7 +37,7 @@ export default function HeroCarousel({ movies }) {
         autoplayInterval={2500}
       >
         {movies.map((movie, idx) => (
-          <Slide movie={movie} key={`${idx}-${movie.title}`} />
+          <Slide movie={movie} key={`${idx}-${movie.title}`} handleClick={handleClick}moreInfo />
         ))}
       </Carousel>
     </div>
