@@ -6,6 +6,12 @@
   background-size: cover;
   z-index: 3;
 
+  span,
+  p,
+  img {
+    text-shadow: 0 0 2px black;
+  }
+
   .tagline {
     text-align: right;
     padding: clamp(0.25rem, 1.75vw, 1rem);
@@ -15,12 +21,22 @@
   }
 
   h2 {
+    font-family: 'Rowdies', sans-serif;
+    font-weight: 700;
+    font-style: normal;
     text-align: left;
     padding-left: clamp(0.25rem, 1.75vw, 1rem);
     text-transform: uppercase;
     font-size: clamp(0.6rem, 5vw, 3rem);
     margin: 0;
     margin-bottom: 1%;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--primary);
+
+    @media (min-width: 600px) {
+      -webkit-text-stroke-width: 2px;
+    }
   }
 
   .show-info {
@@ -46,9 +62,9 @@
     }
 
     p {
-      
       margin: 0;
       color: var(--primary);
+      text-shadow: 0 0 12px black;
     }
   }
 }

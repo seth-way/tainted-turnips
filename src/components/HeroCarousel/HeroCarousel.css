@@ -8,3 +8,24 @@
 #nuka-carousel {
   max-width: min(100%, 1200px);
 }
+
+.nav-dots {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: -1rem;
+  z-index: 5;
+  button.dot {
+    background: white;
+    height: 3px;
+    width: 3px;
+    border: none;
+    border-radius: 9999px;
+  }
+  button.current {
+    background: var(--primary);
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+}
