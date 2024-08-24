@@ -2,14 +2,10 @@ import './MovieCard.css';
 import turnip from '../../assets/images/turnip.png';
 import { ReactComponent as TurnipSVG } from '../../assets/images/turnip.svg';
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, handleClick }) {
   const { id, poster_path, title, average_rating } = movie;
-  console.log(poster_path);
-  const handleClick = () => {
-    console.log('click handled');
-  };
   return (
-    <div className='movie-card' onClick={handleClick}>
+    <div className='movie-card' onClick={() => handleClick(id)}>
       <div className='card-inside'>
         <div className='img-wrapper'>
           <img src={poster_path} alt={`${title} movie poster`} />
