@@ -17,7 +17,7 @@ export const CustomDots = () => {
     <div className='nav-dots'>
       {[...Array(totalPages)].map((_, index) => (
         <button
-          key={index}
+          key={`${index}-dot`}
           onClick={() => goToPage(index)}
           className={className(index)}
         />
@@ -28,7 +28,7 @@ export const CustomDots = () => {
 
 export default function HeroCarousel({ movies }) {
   return (
-    <div class='carousel'>
+    <div className='carousel'>
       <Carousel
         showDots
         autoplay
@@ -36,8 +36,8 @@ export default function HeroCarousel({ movies }) {
         wrapMode='wrap'
         autoplayInterval={2500}
       >
-        {movies.map(movie => (
-          <Slide movie={movie} />
+        {movies.map((movie, idx) => (
+          <Slide movie={movie} key={`${idx}-${movie.title}`} />
         ))}
       </Carousel>
     </div>

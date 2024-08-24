@@ -1,13 +1,11 @@
 import './App.css';
 import { useState, useEffect } from 'react';
+
 import AllMovies from '../AllMovies/AllMovies';
 import Footer from '../Footer/Footer';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
-
-import ColorsDemo from '../ColorsDemo/ColorsDemo';
-import movieData from '../../data/movieData';
 
 function App() {
   const [allMovies, setMovies] = useState([]);
@@ -18,8 +16,8 @@ function App() {
     const URL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
     try {
       const res = await fetch(URL);
-      const data = await res.json();
-      setMovies(data.movies);
+      const {movies}= await res.json();
+      setMovies(movies);
     } catch (err) {
       console.error(err);
       setError(err.message);
@@ -42,12 +40,13 @@ function App() {
     <main className='App'>
       <h1>Tainted Turnips</h1>
       {/*<ColorsDemo />*/}
-      {featuredMovieId ? (
+      {error ? (
+        <h2>{`Error: ${error}`}</h2>
+      ) : featuredMovieId ? (
         <SingleMovie movieId={featuredMovieId} handleClick={handleHomeClick} />
       ) : (
         <AllMovies
           allMovies={allMovies}
-          title='All Movies'
           handleClick={handleMovieClick}
         />
       )}

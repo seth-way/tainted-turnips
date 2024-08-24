@@ -1,15 +1,37 @@
 import './AllMovies.css';
+import { useState, useEffect } from 'react';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import MovieCardsContainer from '../MovieCardsContainer/MovieCardsContainer';
-import movieData from '../../data/movieData';
+import { getRecentMovies, getMoviesData } from '../../utils/movies';
 
 export default function AllMovies({ allMovies, handleClick }) {
-  const { singleMovie } = movieData;
-  const movies = Array(8).fill({ ...singleMovie });
+  const [carouselMovies, setCarousel] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const getCarouselMovies = async () => {
+      const recentMovies = getRecentMovies(allMovies);
+      try {
+        const movies = await getMoviesData(recentMovies);
+        setCarousel(movies);
+      } catch (err) {
+        console.error(err);
+        setError(err.message);
+      }
+    };
+
+    if (allMovies.length) getCarouselMovies();
+  }, [allMovies]);
   return (
     <>
-      <HeroCarousel movies={movies} handleClick={handleClick}/>
-      <MovieCardsContainer title='All Movies' movies={allMovies} handleClick={handleClick}/>
+      {!error && (
+        <HeroCarousel movies={carouselMovies} handleClick={handleClick} />
+      )}
+      <MovieCardsContainer
+        title='All Movies'
+        movies={allMovies}
+        handleClick={handleClick}
+      />
     </>
   );
 }

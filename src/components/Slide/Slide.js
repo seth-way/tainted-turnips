@@ -23,7 +23,7 @@ export default function Slide({ movie }) {
           <p> {average_rating.toFixed(1)}</p>
         </span>
         <span>, {normalizeTime(runtime)}</span>
-        <span>{showGenres()}</span>
+        <span className="genres">{showGenres()}</span>
       </div>
     );
   };

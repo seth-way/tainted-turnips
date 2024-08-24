@@ -5,14 +5,18 @@ import { convertToCurrency } from '../../utils';
 
 export default function SingleMovie({ movieId, handleClick }) {
   const [movie, setMovie] = useState(null);
+  const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
 
   const fetchMovie = async () => {
     const URL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/';
     try {
-      const res = await fetch(URL + movieId);
-      const data = await res.json();
-      setMovie(data.movie);
+      const movieRes = await fetch(URL + movieId);
+      const { movie } = await movieRes.json();
+      setMovie(movie);
+      const videosRes = await fetch(URL + movieId + '/videos');
+      const { videos } = await videosRes.json();
+      setVideos(videos);
     } catch (err) {
       console.error(err);
       setError(err.message);
@@ -20,7 +24,12 @@ export default function SingleMovie({ movieId, handleClick }) {
   };
 
   useEffect(() => {
-    if (movieId) fetchMovie();
+    if (movieId) {
+      fetchMovie();
+    } else {
+      setMovie(null);
+      setVideos([]);
+    }
   }, [movieId]);
 
   if (error) return <h2>{`Error: ${error}`}</h2>;
