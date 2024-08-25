@@ -20,12 +20,16 @@
     text-align: right;
 
     margin: 0;
-    margin-bottom: 15%;
     font-size: clamp(0.6rem, 1.75vw, 1.25rem);
+
+    @media (max-width: 300px) {
+      display: none;
+    }
   }
 
   .title {
     border-left: 2px solid var(--alt);
+    margin-top: 15%;
     margin-bottom: 1%;
 
     h2 {
@@ -82,15 +86,23 @@
 
   .genres {
     font-style: italic;
+
+    @media (max-width: 400px) {
+      display: none;
+    }
   }
 
   button.more-info {
     font-weight: 700;
     border: 2px solid var(--primary);
     border-radius: 5px;
-    padding: 0.4rem 0.8rem;
+    padding: clamp(0.2rem, 1vw, 0.5rem) clamp(0.4rem, 2vw, 1rem);
+    font-size: clamp(0.35rem, 1.5vw, 1.25rem);
     align-self: flex-start;
     margin-top: clamp(0.25rem, 1.75vw, 1rem);
+    @media (max-width: 400px) {
+      border-width: 1px;
+    }
   }
 
   button.more-info:hover {

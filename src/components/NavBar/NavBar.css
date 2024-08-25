@@ -40,9 +40,12 @@ nav {
     font-style: normal;
     text-align: left;
     text-transform: uppercase;
-    font-size: calc(0.5 * var(--navbar-height));
+    font-size: clamp(0.8rem, 5vw, 2rem);
     color: var(--primary);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--alt);
+    @media (min-width: 350px) {
+
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: var(--alt);
+    }
   }
 }

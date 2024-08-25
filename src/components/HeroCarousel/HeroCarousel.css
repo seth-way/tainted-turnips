@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 100%;
 }
 
 #nuka-carousel {
@@ -27,5 +28,9 @@
 
   button:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 300px) {
+    display:none;
   }
 }

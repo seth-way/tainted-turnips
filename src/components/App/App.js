@@ -53,6 +53,7 @@ function App() {
       ) : (
         <AllMovies allMovies={allMovies} handleClick={handleMovieClick} />
       )}
+      <Footer />
     </main>
   );
 }
