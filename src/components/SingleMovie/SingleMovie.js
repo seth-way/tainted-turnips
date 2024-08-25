@@ -2,10 +2,10 @@ import './SingleMovie.css';
 import { useState, useEffect } from 'react';
 import Slide from '../Slide/Slide';
 import { convertToCurrency } from '../../utils';
-import PropTypes from "prop-types";
-import ErrorMessage from "../Error /ErrorMessage";
+import PropTypes from 'prop-types';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
- function SingleMovie({ movieId, handleClick }) {
+function SingleMovie({ movieId, handleClick }) {
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
@@ -14,26 +14,25 @@ import ErrorMessage from "../Error /ErrorMessage";
     const URL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/';
     try {
       const movieRes = await fetch(URL + movieId);
-        if (!movieRes.ok) {
-            const error = new Error(movieRes.statusText)
-            error.code = movieRes.status
-            throw error;
-        }
+      if (!movieRes.ok) {
+        const error = new Error(movieRes.statusText);
+        error.code = movieRes.status;
+        throw error;
+      }
       const { movie } = await movieRes.json();
       setMovie(movie);
       const videosRes = await fetch(URL + movieId + '/videos');
-        if (!videosRes.ok) {
-            const error = new Error(videosRes.statusText)
-            error.code = videosRes.status
-            throw error;
-        }
+      if (!videosRes.ok) {
+        const error = new Error(videosRes.statusText);
+        error.code = videosRes.status;
+        throw error;
+      }
       const { videos } = await videosRes.json();
       setVideos(videos);
     } catch (err) {
-        console.error(err)
+      console.error(err);
       setError(err);
     }
-
   };
 
   useEffect(() => {
@@ -45,7 +44,7 @@ import ErrorMessage from "../Error /ErrorMessage";
     }
   }, [movieId]);
 
-  if (error) return <ErrorMessage error={error}/>;
+  if (error) return <ErrorMessage error={error} />;
   if (!movie) return <h2>loading movie...</h2>;
 
   const { release_date, overview, budget, revenue } = movie;
@@ -67,8 +66,10 @@ import ErrorMessage from "../Error /ErrorMessage";
     </section>
   );
 }
-SingleMovie.propTypes ={
-  movieId:PropTypes.number.isRequired,
-  handleClick:PropTypes.func.isRequired
-}
-export default SingleMovie
+
+SingleMovie.propTypes = {
+  movieId: PropTypes.number.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
+
+export default SingleMovie;

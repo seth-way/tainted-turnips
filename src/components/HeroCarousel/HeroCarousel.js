@@ -1,8 +1,7 @@
 import './HeroCarousel.css';
 import { Carousel, useCarousel } from 'nuka-carousel';
 import Slide from '../Slide/Slide';
-import PropTypes from "prop-types";
-import AllMovies from "../AllMovies/AllMovies";
+import PropTypes from 'prop-types';
 
 export const CustomDots = () => {
   const { totalPages, currentPage, goToPage } = useCarousel();
@@ -39,14 +38,21 @@ function HeroCarousel({ movies, handleClick }) {
         autoplayInterval={2500}
       >
         {movies.map((movie, idx) => (
-          <Slide movie={movie} key={`${idx}-${movie.title}`} handleClick={handleClick}moreInfo />
+          <Slide
+            movie={movie}
+            key={`${idx}-${movie.title}`}
+            handleClick={handleClick}
+            moreInfo
+          />
         ))}
       </Carousel>
     </div>
   );
 }
+
 HeroCarousel.propTypes = {
   movies: PropTypes.array.isRequired,
   handleClick: PropTypes.func.isRequired,
-}
+};
+
 export default HeroCarousel;

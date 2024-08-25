@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
-import ErrorMessage from "../Error /ErrorMessage";
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 function App() {
   const [allMovies, setMovies] = useState([]);
@@ -18,14 +18,13 @@ function App() {
     try {
       const res = await fetch(URL);
       if (!res.ok) {
-        const error = new Error(res.statusText)
-        error.code = res.status
+        const error = new Error(res.statusText);
+        error.code = res.status;
         throw error;
       }
-      const {movies}= await res.json();
+      const { movies } = await res.json();
       setMovies(movies);
     } catch (err) {
-
       console.error(err);
       setError(err);
     }
@@ -48,14 +47,11 @@ function App() {
       <NavBar />
       {/*<ColorsDemo />*/}
       {error ? (
-          <ErrorMessage error={error}/>
+        <ErrorMessage error={error} />
       ) : featuredMovieId ? (
         <SingleMovie movieId={featuredMovieId} handleClick={handleHomeClick} />
       ) : (
-        <AllMovies
-          allMovies={allMovies}
-          handleClick={handleMovieClick}
-        />
+        <AllMovies allMovies={allMovies} handleClick={handleMovieClick} />
       )}
     </main>
   );
