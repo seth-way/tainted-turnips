@@ -1,5 +1,6 @@
 import './NavBar.css';
 
-export default function NavBar() {
+ function NavBar() {
   return <>NavBar Component</>;
 }
+export default NavBar
