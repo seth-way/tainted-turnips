@@ -2,10 +2,11 @@ import './Footer.css';
 import gitHubLogo from '../../assets/images/github.svg';
 import linkedinLogo from '../../assets/images/linkedin.svg';
 
-const githubMarshall = '';
-const linkedInMarshall = '';
-const githubSeth = '';
-const linkedInSeth = '';
+const githubMarshall = 'https://github.com/marshallhotaling';
+const linkedInMarshall =
+  'https://www.linkedin.com/in/marshall-hotaling-7b52a8304/';
+const githubSeth = 'https://github.com/seth-way';
+const linkedInSeth = 'https://www.linkedin.com/in/sethway/';
 
 function Footer() {
   return (
@@ -33,7 +34,7 @@ function Footer() {
             <img src={linkedinLogo} alt='linkedIn logo' />
           </a>
 
-          <hr/>
+          <hr />
 
           <a
             href={githubSeth}
