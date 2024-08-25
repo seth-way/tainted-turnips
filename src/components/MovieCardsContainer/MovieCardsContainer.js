@@ -1,8 +1,8 @@
 import './MovieCardsContainer.css';
 import MovieCard from '../MovieCard/MovieCard';
+import PropTypes from "prop-types";
 
-
-export default function MovieCardsContainer({ title, movies, handleClick }) {
+ function MovieCardsContainer({ title, movies, handleClick }) {
   return (
     <section className='movie-cards-container'>
       <h2>{title}</h2>
@@ -14,3 +14,9 @@ export default function MovieCardsContainer({ title, movies, handleClick }) {
     </section>
   );
 }
+MovieCardsContainer.propTypes = {
+    title:PropTypes.string.isRequired,
+    movies:PropTypes.array.isRequired,
+    handleClick:PropTypes.func.isRequired
+}
+export default MovieCardsContainer;
