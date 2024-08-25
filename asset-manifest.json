@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/tainted-turnips/static/css/main.6a9b1069.css",
-    "main.js": "/tainted-turnips/static/js/main.2c715433.js",
+    "main.css": "/tainted-turnips/static/css/main.a25421a8.css",
+    "main.js": "/tainted-turnips/static/js/main.a530b57c.js",
     "static/js/453.bb6d90c4.chunk.js": "/tainted-turnips/static/js/453.bb6d90c4.chunk.js",
     "static/media/turnip.png": "/tainted-turnips/static/media/turnip.f7b647fec039ddd3ecaa.png",
     "index.html": "/tainted-turnips/index.html",
+    "static/media/github.svg": "/tainted-turnips/static/media/github.2cd44dceae6b10da544ca7bec4870328.svg",
+    "static/media/linkedin.svg": "/tainted-turnips/static/media/linkedin.454ce39ccac4650ca646596a17be4662.svg",
     "static/media/turnip.svg": "/tainted-turnips/static/media/turnip.71548d6ffc164aaacb70acefbe641e0a.svg",
-    "main.6a9b1069.css.map": "/tainted-turnips/static/css/main.6a9b1069.css.map",
-    "main.2c715433.js.map": "/tainted-turnips/static/js/main.2c715433.js.map",
+    "main.a25421a8.css.map": "/tainted-turnips/static/css/main.a25421a8.css.map",
+    "main.a530b57c.js.map": "/tainted-turnips/static/js/main.a530b57c.js.map",
     "453.bb6d90c4.chunk.js.map": "/tainted-turnips/static/js/453.bb6d90c4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6a9b1069.css",
-    "static/js/main.2c715433.js"
+    "static/css/main.a25421a8.css",
+    "static/js/main.a530b57c.js"
   ]
 }
