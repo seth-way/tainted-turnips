@@ -25,7 +25,7 @@
   }
 
   .title {
-    border-left: thin solid white;
+    border-left: 2px solid var(--alt);
     margin-bottom: 1%;
 
     h2 {

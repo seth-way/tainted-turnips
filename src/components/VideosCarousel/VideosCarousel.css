@@ -1,12 +1,6 @@
 .videos-carousel-container {
-  color: var(--secondary);
   text-align: left;
   max-width: 100%;
-
-  h3 {
-    border-left: thick solid var(--accent);
-    padding-left: 0.5rem;
-  }
 
   .nuka-container {
     max-width: 100%;

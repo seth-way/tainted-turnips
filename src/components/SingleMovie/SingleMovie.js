@@ -2,7 +2,7 @@ import './SingleMovie.css';
 import { useState, useEffect } from 'react';
 import Slide from '../Slide/Slide';
 import Videos from '../Videos/Videos';
-import { convertToCurrency } from '../../utils';
+import { convertToCurrency, normalizeDate } from '../../utils';
 import PropTypes from 'prop-types';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
@@ -49,20 +49,41 @@ function SingleMovie({ movieId }) {
   if (!movie) return <h2>loading movie...</h2>;
 
   const { title, release_date, overview, budget, revenue } = movie;
-
+  console.log('rev <><>', revenue);
+  console.log('budget <><>', budget);
   return (
     <section className='single-movie-view'>
       <Slide movie={movie} />
-      <Videos videos={videos} title={title}/>
-      <div className='single-movie-description'>
-        <div className='overview'>
-          <h4>Description</h4>
+      <Videos videos={videos} title={title} />
+      <div className='movie-info'>
+        <div className='info-content'>
+          <h3>Description</h3>
           <p className='single-overview'>{overview}</p>
         </div>
-        <div className='mini-description'>
-          <p>{release_date}</p>
-          <p className='single-budget'>{convertToCurrency(budget)}</p>
-          <p className='single-revenue'>{convertToCurrency(revenue)}</p>
+        <div>
+          <div className='info-content'>
+            <h3>Release Date</h3>
+            <p>{normalizeDate(release_date)}</p>
+          </div>
+          {budget > 0 && revenue > 0 && (
+            <div className='info-content'>
+              <h3>Box Office</h3>
+              <ul>
+                <li>
+                  <h4>Budget</h4>
+                  <p>{convertToCurrency(budget)}</p>
+                </li>
+                <li>
+                  <h4>Revenue</h4>
+                  <p>{convertToCurrency(revenue)}</p>
+                </li>
+                <li>
+                  <h4>Profit</h4>
+                  <p>{convertToCurrency(revenue - budget)}</p>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </section>

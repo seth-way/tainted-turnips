@@ -4,6 +4,8 @@ import { normalizeTime } from '../../utils';
 import PropTypes from 'prop-types';
 
 function Slide({ movie, handleClick, moreInfo }) {
+  if (!movie) return <></>;
+  
   const { id, title, backdrop_path, average_rating, genres, runtime, tagline } =
     movie;
   const showGenres = () => {
@@ -32,7 +34,9 @@ function Slide({ movie, handleClick, moreInfo }) {
   return (
     <div className='slide' style={{ backgroundImage: `url(${backdrop_path})` }}>
       <p className='tagline'>{tagline}</p>
-      <div className='title'><h2>{title}</h2></div>
+      <div className='title'>
+        <h2>{title}</h2>
+      </div>
       {showMovieInfo()}
       {moreInfo && (
         <button className='more-info' onClick={() => handleClick(id)}>

@@ -40,7 +40,7 @@ function HeroCarousel({ movies, handleClick }) {
         {movies.map((movie, idx) => (
           <Slide
             movie={movie}
-            key={`${idx}-${movie.title}`}
+            key={`${idx}-hero-slide`}
             handleClick={handleClick}
             moreInfo
           />

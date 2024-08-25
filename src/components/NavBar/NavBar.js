@@ -7,8 +7,8 @@ function NavBar({ handleClick }) {
     <nav>
       <div className='content'>
         <button onClick={handleClick}>
-          <img className='logo' src={turnip} alt='turnip logo' />
           <h1>Tainted Turnips</h1>
+          <img className='logo' src={turnip} alt='turnip logo' />
         </button>
       </div>
     </nav>
