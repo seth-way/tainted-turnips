@@ -38,7 +38,7 @@ export default function SingleMovie({ movieId, handleClick }) {
   const { release_date, overview, budget, revenue } = movie;
 
   return (
-    <div className='single-movie-view' onClick={handleClick}>
+    <section className='single-movie-view' onClick={handleClick}>
       <Slide movie={movie} />
       <div className='single-movie-description'>
         <div className='overview'>
@@ -51,6 +51,6 @@ export default function SingleMovie({ movieId, handleClick }) {
           <p className='single-revenue'>{convertToCurrency(revenue)}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

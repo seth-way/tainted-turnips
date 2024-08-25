@@ -23,7 +23,7 @@ export default function AllMovies({ allMovies, handleClick }) {
     if (allMovies.length) getCarouselMovies();
   }, [allMovies]);
   return (
-    <>
+    <section>
       {!error && (
         <HeroCarousel movies={carouselMovies} handleClick={handleClick} />
       )}
@@ -32,6 +32,6 @@ export default function AllMovies({ allMovies, handleClick }) {
         movies={allMovies}
         handleClick={handleClick}
       />
-    </>
+    </section>
   );
 }

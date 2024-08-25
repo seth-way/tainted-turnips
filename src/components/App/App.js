@@ -38,7 +38,6 @@ function App() {
 
   return (
     <main className='App'>
-      <h1>Tainted Turnips</h1>
       {/*<ColorsDemo />*/}
       {error ? (
         <h2>{`Error: ${error}`}</h2>
