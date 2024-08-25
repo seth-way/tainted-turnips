@@ -1,10 +1,10 @@
 :root {
-  /*-- colors --*/
+  /*-- all colors --*/
   --yellow: #fccc0f;
   --purple: #9b5094;
   --blue: #4973b8;
   --green: #73a950;
-  /*-- layout --*/
+  /*-- app colors --*/
   --bg: #0c1419;
   --bg-2: #23272f;
 
@@ -15,6 +15,12 @@
   --secondary: var(--yellow);
   --accent: var(--blue);
   --alt: var(--green);
+
+  /*-- layout --*/
+  --navbar-height: 80px;
+  @media (max-width: 500px) {
+    --navbar-height: 40px;
+  }
 }
 
 *::-webkit-scrollbar {

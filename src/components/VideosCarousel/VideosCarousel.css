@@ -1,0 +1,20 @@
+.videos-carousel-container {
+  text-align: left;
+  max-width: 100%;
+
+  .nuka-container {
+    max-width: 100%;
+  }
+
+  .iframe-wrapper {
+    .min-width: min(300px, 80vw);
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+    iframe {
+      border: none;
+      box-sizing: border-box;
+      width: min(300px, 70vw);
+      aspect-ratio: 7 / 4;
+    }
+  }
+}

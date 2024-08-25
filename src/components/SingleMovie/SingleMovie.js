@@ -1,11 +1,12 @@
 import './SingleMovie.css';
 import { useState, useEffect } from 'react';
 import Slide from '../Slide/Slide';
-import { convertToCurrency } from '../../utils';
-import PropTypes from "prop-types";
-import ErrorMessage from "../Error /ErrorMessage";
+import Videos from '../Videos/Videos';
+import { convertToCurrency, normalizeDate } from '../../utils';
+import PropTypes from 'prop-types';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
- function SingleMovie({ movieId, handleClick }) {
+function SingleMovie({ movieId }) {
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
@@ -14,26 +15,25 @@ import ErrorMessage from "../Error /ErrorMessage";
     const URL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/';
     try {
       const movieRes = await fetch(URL + movieId);
-        if (!movieRes.ok) {
-            const error = new Error(movieRes.statusText)
-            error.code = movieRes.status
-            throw error;
-        }
+      if (!movieRes.ok) {
+        const error = new Error(movieRes.statusText);
+        error.code = movieRes.status;
+        throw error;
+      }
       const { movie } = await movieRes.json();
       setMovie(movie);
       const videosRes = await fetch(URL + movieId + '/videos');
-        if (!videosRes.ok) {
-            const error = new Error(videosRes.statusText)
-            error.code = videosRes.status
-            throw error;
-        }
+      if (!videosRes.ok) {
+        const error = new Error(videosRes.statusText);
+        error.code = videosRes.status;
+        throw error;
+      }
       const { videos } = await videosRes.json();
       setVideos(videos);
     } catch (err) {
-        console.error(err)
+      console.error(err);
       setError(err);
     }
-
   };
 
   useEffect(() => {
@@ -45,30 +45,53 @@ import ErrorMessage from "../Error /ErrorMessage";
     }
   }, [movieId]);
 
-  if (error) return <ErrorMessage error={error}/>;
+  if (error) return <ErrorMessage error={error} />;
   if (!movie) return <h2>loading movie...</h2>;
 
-  const { release_date, overview, budget, revenue } = movie;
-
+  const { title, release_date, overview, budget, revenue } = movie;
+  console.log('rev <><>', revenue);
+  console.log('budget <><>', budget);
   return (
-    <div className='single-movie-view' onClick={handleClick}>
+    <section className='single-movie-view'>
       <Slide movie={movie} />
-      <div className='single-movie-description'>
-        <div className='overview'>
-          <h4>Description</h4>
+      <Videos videos={videos} title={title} />
+      <div className='movie-info'>
+        <div className='info-content'>
+          <h3>Description</h3>
           <p className='single-overview'>{overview}</p>
         </div>
-        <div className='mini-description'>
-          <p>{release_date}</p>
-          <p className='single-budget'>{convertToCurrency(budget)}</p>
-          <p className='single-revenue'>{convertToCurrency(revenue)}</p>
+        <div>
+          <div className='info-content'>
+            <h3>Release Date</h3>
+            <p>{normalizeDate(release_date)}</p>
+          </div>
+          {budget > 0 && revenue > 0 && (
+            <div className='info-content'>
+              <h3>Box Office</h3>
+              <ul>
+                <li>
+                  <h4>Budget</h4>
+                  <p>{convertToCurrency(budget)}</p>
+                </li>
+                <li>
+                  <h4>Revenue</h4>
+                  <p>{convertToCurrency(revenue)}</p>
+                </li>
+                <li>
+                  <h4>Profit</h4>
+                  <p>{convertToCurrency(revenue - budget)}</p>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-SingleMovie.propTypes ={
-  movieId:PropTypes.number.isRequired,
-  handleClick:PropTypes.func.isRequired
-}
-export default SingleMovie
+
+SingleMovie.propTypes = {
+  movieId: PropTypes.number.isRequired,
+};
+
+export default SingleMovie;

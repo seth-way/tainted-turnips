@@ -23,7 +23,7 @@ function AllMovies({ allMovies, handleClick }) {
     if (allMovies.length) getCarouselMovies();
   }, [allMovies]);
   return (
-    <>
+    <section>
       {!error && (
         <HeroCarousel movies={carouselMovies} handleClick={handleClick} />
       )}
@@ -32,7 +32,7 @@ function AllMovies({ allMovies, handleClick }) {
         movies={allMovies}
         handleClick={handleClick}
       />
-    </>
+    </section>
   );
 }
 AllMovies.propTypes = {

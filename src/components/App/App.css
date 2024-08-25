@@ -1,8 +1,15 @@
 .App {
+  position: relative;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #090909;
 
-  h1 {
-    text-transform: uppercase;
+  section {
+    width: 100%;
+    max-width: 1200px;
+    background: var(--bg);
   }
 }
 

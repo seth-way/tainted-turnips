@@ -1,40 +1,70 @@
 .single-movie-view {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.single-movie-description {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(1rem, 3vw, 3rem);
-  max-width: 900px;
-}
-
-.overview {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  max-width: 400px;
-}
-
-/* .single-overview{
-    display: flex;
-    text-align: center;
-    height: 50px;
-    width: 570px;
-} */
-.mini-description {
-  display: flex;
-  text-align: center;
-  /* height: 50px; */
   flex-direction: column;
-  width: min(400px, 80vw);
-}
-.single-release-date {
-}
+  align-items: center;
 
-.single-budget {
-}
-.single-revenue {
+  h3 {
+    color: var(--secondary);
+    border-left: thick solid var(--accent);
+    padding-left: 0.5rem;
+  }
+
+  .movie-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: calc(600px);
+    gap: 1rem;
+
+    .info-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.5rem;
+      box-sizing: border-box;
+      width: 250px;
+      margin-bottom: 1rem;
+
+      p,
+      h3 {
+        margin: 0;
+        padding-left: 0.5rem;
+      }
+
+      h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 1rem;
+        p {
+          padding-left: 0;
+        }
+
+        li::marker {
+          color: var(--secondary);
+        }
+      }
+
+      h4 {
+        margin: 0.25rem 0;
+        color: var(--accent);
+        text-align: left;
+      }
+
+      p {
+        text-align: left;
+        text-indent: 1.5rem;
+      }
+      @media screen and (max-width: 600px) {
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
 }
