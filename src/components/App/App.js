@@ -38,6 +38,7 @@ function App() {
 
   return (
     <main className='App'>
+      <NavBar />
       {/*<ColorsDemo />*/}
       {error ? (
         <h2>{`Error: ${error}`}</h2>

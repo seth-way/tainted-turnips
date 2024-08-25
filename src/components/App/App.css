@@ -1,7 +1,6 @@
 .App {
   position: relative;
   text-align: center;
-  padding-top: var(--navbar-height);
   display: flex;
   flex-direction: column;
   align-items: center;
