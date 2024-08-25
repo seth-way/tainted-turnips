@@ -32,7 +32,7 @@ function Slide({ movie, handleClick, moreInfo }) {
   return (
     <div className='slide' style={{ backgroundImage: `url(${backdrop_path})` }}>
       <p className='tagline'>{tagline}</p>
-      <h2>{title}</h2>
+      <div className='title'><h2>{title}</h2></div>
       {showMovieInfo()}
       {moreInfo && (
         <button className='more-info' onClick={() => handleClick(id)}>
@@ -53,7 +53,7 @@ Slide.propTypes = {
     runtime: PropTypes.number.isRequired,
     tagline: PropTypes.string.isRequired,
   }).isRequired,
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
   moreInfo: PropTypes.bool,
 };
 

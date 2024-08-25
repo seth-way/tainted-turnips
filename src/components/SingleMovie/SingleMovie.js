@@ -1,11 +1,12 @@
 import './SingleMovie.css';
 import { useState, useEffect } from 'react';
 import Slide from '../Slide/Slide';
+import Videos from '../Videos/Videos';
 import { convertToCurrency } from '../../utils';
 import PropTypes from 'prop-types';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
-function SingleMovie({ movieId, handleClick }) {
+function SingleMovie({ movieId }) {
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState(null);
@@ -47,11 +48,12 @@ function SingleMovie({ movieId, handleClick }) {
   if (error) return <ErrorMessage error={error} />;
   if (!movie) return <h2>loading movie...</h2>;
 
-  const { release_date, overview, budget, revenue } = movie;
+  const { title, release_date, overview, budget, revenue } = movie;
 
   return (
-    <section className='single-movie-view' onClick={handleClick}>
+    <section className='single-movie-view'>
       <Slide movie={movie} />
+      <Videos videos={videos} title={title}/>
       <div className='single-movie-description'>
         <div className='overview'>
           <h4>Description</h4>
@@ -69,7 +71,6 @@ function SingleMovie({ movieId, handleClick }) {
 
 SingleMovie.propTypes = {
   movieId: PropTypes.number.isRequired,
-  handleClick: PropTypes.func.isRequired,
 };
 
 export default SingleMovie;

@@ -18,27 +18,35 @@
 
   .tagline {
     text-align: right;
-    
+
     margin: 0;
     margin-bottom: 15%;
     font-size: clamp(0.6rem, 1.75vw, 1.25rem);
   }
 
-  h2 {
-    font-family: 'Rowdies', sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    text-align: left;
-    text-transform: uppercase;
-    font-size: clamp(0.6rem, 5vw, 3rem);
-    margin: 0;
+  .title {
+    border-left: thin solid white;
     margin-bottom: 1%;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--primary);
 
-    @media (min-width: 600px) {
-      -webkit-text-stroke-width: 2px;
+    h2 {
+      border-left: thick solid var(--primary);
+      font-family: 'Rowdies', sans-serif;
+      font-weight: 700;
+      font-style: normal;
+      text-align: left;
+      text-transform: uppercase;
+      font-size: clamp(0.6rem, 5vw, 3rem);
+      margin: 0;
+      padding: 0;
+      padding-left: 1rem;
+      color: white;
+      max-width: 70%;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: var(--primary);
+
+      @media (min-width: 600px) {
+        -webkit-text-stroke-width: 2px;
+      }
     }
   }
 

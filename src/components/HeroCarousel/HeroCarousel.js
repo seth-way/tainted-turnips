@@ -35,7 +35,7 @@ function HeroCarousel({ movies, handleClick }) {
         autoplay
         dots={<CustomDots />}
         wrapMode='wrap'
-        autoplayInterval={2500}
+        autoplayInterval={3000}
       >
         {movies.map((movie, idx) => (
           <Slide

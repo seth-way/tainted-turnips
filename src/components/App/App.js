@@ -44,12 +44,12 @@ function App() {
 
   return (
     <main className='App'>
-      <NavBar />
+      <NavBar handleClick={handleHomeClick}/>
       {/*<ColorsDemo />*/}
       {error ? (
         <ErrorMessage error={error} />
       ) : featuredMovieId ? (
-        <SingleMovie movieId={featuredMovieId} handleClick={handleHomeClick} />
+        <SingleMovie movieId={featuredMovieId} />
       ) : (
         <AllMovies allMovies={allMovies} handleClick={handleMovieClick} />
       )}
