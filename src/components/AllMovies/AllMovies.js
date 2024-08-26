@@ -1,7 +1,8 @@
 import './AllMovies.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import MovieCardsContainer from '../MovieCardsContainer/MovieCardsContainer';
+import LoadingSlide from '../LoadingSlide/LoadingSlide';
 import { getRecentMovies, getMoviesData } from '../../utils/movies';
 import PropTypes from 'prop-types';
 function AllMovies({ allMovies, handleClick }) {
@@ -13,7 +14,7 @@ function AllMovies({ allMovies, handleClick }) {
       const recentMovies = getRecentMovies(allMovies);
       try {
         const movies = await getMoviesData(recentMovies);
-        setCarousel(movies);
+        setCarousel(() => movies);
       } catch (err) {
         console.error(err);
         setError(err);
@@ -22,21 +23,35 @@ function AllMovies({ allMovies, handleClick }) {
 
     if (allMovies.length) getCarouselMovies();
   }, [allMovies]);
+
   return (
     <section>
-      {!error && (
-        <HeroCarousel movies={carouselMovies} handleClick={handleClick} />
+      {!error &&
+        (carouselMovies.length ? (
+          <HeroCarousel movies={carouselMovies} handleClick={handleClick} />
+        ) : (
+          <LoadingSlide />
+        ))}
+      {allMovies.length ? (
+        <MovieCardsContainer
+          title='All Movies'
+          movies={allMovies}
+          handleClick={handleClick}
+        />
+      ) : (
+        <>
+          <LoadingSlide />
+          <LoadingSlide />
+          <LoadingSlide />
+        </>
       )}
-      <MovieCardsContainer
-        title='All Movies'
-        movies={allMovies}
-        handleClick={handleClick}
-      />
     </section>
   );
 }
+
 AllMovies.propTypes = {
   allMovies: PropTypes.array.isRequired,
   handleClick: PropTypes.func.isRequired,
-}
+};
+
 export default AllMovies;

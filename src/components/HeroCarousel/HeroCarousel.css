@@ -3,7 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+  width: min(100%, 1200px);
+  height: min(calc(100vw * 433 / 771), 673px);
 }
 
 #nuka-carousel {

@@ -1,16 +1,21 @@
 import './MovieCard.css';
+import { motion } from 'framer-motion';
 import turnip from '../../assets/images/turnip.png';
-import { ReactComponent as TurnipSVG } from '../../assets/images/turnip.svg';
-import PropTypes from "prop-types";
-import HeroCarousel from "../HeroCarousel/HeroCarousel";
+import PropTypes from 'prop-types';
 
- function MovieCard({ movie, handleClick }) {
+function MovieCard({ movie, handleClick }) {
   const { id, poster_path, title, average_rating } = movie;
+
   return (
     <div className='movie-card' onClick={() => handleClick(id)}>
       <div className='card-inside'>
         <div className='img-wrapper'>
-          <img src={poster_path} alt={`${title} movie poster`} />
+          <motion.img
+            src={poster_path}
+            alt={`${title} movie poster`}
+            whileHover={{ scale: 1.07 }}
+            transition={{ type: 'spring' }}
+          />
         </div>
         <div className='rating'>
           <img src={turnip} alt='turnip icon' />
@@ -23,13 +28,15 @@ import HeroCarousel from "../HeroCarousel/HeroCarousel";
     </div>
   );
 }
+
 MovieCard.propTypes = {
   movie: PropTypes.shape({
-    id:PropTypes.number.isRequired,
-    poster_path:PropTypes.string.isRequired,
-    title:PropTypes.string.isRequired,
-    average_rating:PropTypes.number.isRequired
+    id: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
   }).isRequired,
   handleClick: PropTypes.func.isRequired,
-}
+};
+
 export default MovieCard;

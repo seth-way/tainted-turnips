@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function Slide({ movie, handleClick, moreInfo }) {
   if (!movie) return <></>;
-  
+
   const { id, title, backdrop_path, average_rating, genres, runtime, tagline } =
     movie;
   const showGenres = () => {
@@ -18,6 +18,7 @@ function Slide({ movie, handleClick, moreInfo }) {
     result += ' & ' + genres[length - 1];
     return result;
   };
+
   const showMovieInfo = () => {
     return (
       <div className='show-info'>
