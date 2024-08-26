@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/tainted-turnips/static/css/main.616bced3.css",
-    "main.js": "/tainted-turnips/static/js/main.13fe5b8f.js",
+    "main.css": "/tainted-turnips/static/css/main.9ccc4ac8.css",
+    "main.js": "/tainted-turnips/static/js/main.246dcdf5.js",
     "static/js/453.bb6d90c4.chunk.js": "/tainted-turnips/static/js/453.bb6d90c4.chunk.js",
     "static/media/turnip.png": "/tainted-turnips/static/media/turnip.f7b647fec039ddd3ecaa.png",
     "index.html": "/tainted-turnips/index.html",
     "static/media/github.svg": "/tainted-turnips/static/media/github.2cd44dceae6b10da544ca7bec4870328.svg",
     "static/media/blocks.svg": "/tainted-turnips/static/media/blocks.c6efec5295470242446109e64cdffd0e.svg",
+    "static/media/caret_left.svg": "/tainted-turnips/static/media/caret_left.cfb3079c17c5b50c4bc0a3a7e78b283b.svg",
+    "static/media/caret_right.svg": "/tainted-turnips/static/media/caret_right.f6e9af142c56a40d75bb25847ea1881e.svg",
     "static/media/linkedin.svg": "/tainted-turnips/static/media/linkedin.454ce39ccac4650ca646596a17be4662.svg",
-    "main.616bced3.css.map": "/tainted-turnips/static/css/main.616bced3.css.map",
-    "main.13fe5b8f.js.map": "/tainted-turnips/static/js/main.13fe5b8f.js.map",
+    "main.9ccc4ac8.css.map": "/tainted-turnips/static/css/main.9ccc4ac8.css.map",
+    "main.246dcdf5.js.map": "/tainted-turnips/static/js/main.246dcdf5.js.map",
     "453.bb6d90c4.chunk.js.map": "/tainted-turnips/static/js/453.bb6d90c4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.616bced3.css",
-    "static/js/main.13fe5b8f.js"
+    "static/css/main.9ccc4ac8.css",
+    "static/js/main.246dcdf5.js"
   ]
 }
