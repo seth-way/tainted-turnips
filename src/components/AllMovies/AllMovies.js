@@ -25,7 +25,7 @@ function AllMovies({ allMovies, handleClick }) {
   }, [allMovies]);
 
   return (
-    <section>
+    <section id="all-movies">
       {!error &&
         (carouselMovies.length ? (
           <HeroCarousel movies={carouselMovies} handleClick={handleClick} />
