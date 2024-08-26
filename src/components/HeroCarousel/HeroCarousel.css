@@ -1,20 +1,26 @@
 .carousel {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   width: min(100%, 1200px);
   height: min(calc(100vw * 433 / 771), 673px);
+  position: relative;
 }
 
 #nuka-carousel {
   max-width: min(100%, 1200px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .nav-dots {
   display: flex;
   gap: 0.5rem;
-  margin-top: -1rem;
+  margin-bottom: 1rem;
   z-index: 5;
   button.dot {
     background: white;
@@ -32,6 +38,6 @@
   }
 
   @media (max-width: 300px) {
-    display:none;
+    display: none;
   }
 }
