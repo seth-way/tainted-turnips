@@ -1,6 +1,7 @@
 import './VideosCarousel.css';
 import PropTypes from 'prop-types';
 import { Carousel, useCarousel } from 'nuka-carousel';
+import CustomArrows from '../CustomArrows/CustomArrows';
 
 function VideosCarousel({ type, keys, title }) {
   const baseURL = 'https://www.youtube.com/embed/';
@@ -12,6 +13,7 @@ function VideosCarousel({ type, keys, title }) {
         id={`${type}-videos-carousel`}
         showArrows
         scrollDistance='slide'
+        arrows={<CustomArrows />}
       >
         {keys.map((videoKey, idx) => (
           <div className='iframe-wrapper'>
