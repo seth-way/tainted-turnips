@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 
 import AllMovies from '../AllMovies/AllMovies';
 import Footer from '../Footer/Footer';
@@ -7,6 +7,7 @@ import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
+import LoadingSlide from '../LoadingSlide/LoadingSlide';
 
 function App() {
   const [allMovies, setMovies] = useState([]);
@@ -44,15 +45,14 @@ function App() {
 
   return (
     <main className='App'>
-      <NavBar handleClick={handleHomeClick}/>
-      {/*<ColorsDemo />*/}
-      {error ? (
-        <ErrorMessage error={error} />
-      ) : featuredMovieId ? (
-        <SingleMovie movieId={featuredMovieId} />
-      ) : (
-        <AllMovies allMovies={allMovies} handleClick={handleMovieClick} />
-      )}
+      <NavBar handleClick={handleHomeClick} />
+        {error ? (
+          <ErrorMessage error={error} />
+        ) : featuredMovieId ? (
+          <SingleMovie movieId={featuredMovieId} />
+        ) : (
+          <AllMovies allMovies={allMovies} handleClick={handleMovieClick} />
+        )}
       <Footer />
     </main>
   );

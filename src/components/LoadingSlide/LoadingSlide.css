@@ -1,0 +1,16 @@
+.loading-slide {
+  width: min(100%, 1200px);
+  height: min(calc(100vw * 433 / 771), 673px);
+  box-sizing: border-box;
+  padding: clamp(0.25rem, 1.75vw, 1rem);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: pink;
+
+  svg {
+    height: 3rem;
+    width: 3rem;
+  }
+}

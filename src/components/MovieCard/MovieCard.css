@@ -27,10 +27,6 @@
 .movie-card:hover {
   cursor: pointer;
 
-  .img-wrapper > img {
-    transform: scale(1.03);
-  }
-
   .title {
     color: var(--text-2);
   }
@@ -64,7 +60,6 @@
     margin-top: 0.25rem;
 
     img {
-      transition: transform 0.4s ease-in-out;
       height: 100%;
       width: 100%;
     }
