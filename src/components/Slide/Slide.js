@@ -44,6 +44,7 @@ function Slide({ movie, handleClick, moreInfo }) {
           className='more-info'
           onClick={() => handleClick(id)}
           whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
           transition={{ type: 'spring' }}
         >
           More Info...
