@@ -18,7 +18,13 @@ function NavBar({ handleClick }) {
           whileTap={{ scale: 0.85 }}
           transition={{ type: 'spring', duration: 1.5 }}
         >
-          <img src={popcorn} alt='retro popcorn cartoon character' />
+          <motion.img
+            src={popcorn}
+            alt='retro popcorn cartoon character'
+            initial={{ x: '-400%', scale: 0 }}
+            animate={{ x: 0, scale: 1 }}
+            transition={{ type: 'spring', delay: 1.25 }}
+          />
           <img src={movieTime} alt='movie time speech bubble'></img>
         </motion.div>
         <motion.button
