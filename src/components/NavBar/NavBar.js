@@ -13,7 +13,9 @@ function NavBar({ handleClick }) {
           alt='retro popcorn cartoon character'
           whileHover={{
             rotate: 360,
+            translateX: '15px',
           }}
+          whileTap={{ scale: 0.85 }}
           transition={{ type: 'spring', duration: 1.5 }}
         />
         <motion.button
