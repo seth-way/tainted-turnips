@@ -17,4 +17,7 @@
       aspect-ratio: 7 / 4;
     }
   }
+  iframe-wrapper:hover {
+    cursor: pointer;
+  }
 }

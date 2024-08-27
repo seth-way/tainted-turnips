@@ -12,7 +12,7 @@ function VideosCarousel({ type, keys, title }) {
       <Carousel
         id={`${type}-videos-carousel`}
         showArrows
-        scrollDistance='slide'
+        scrollDistance='--dist'
         arrows={<CustomArrows />}
       >
         {keys.map((videoKey, idx) => (

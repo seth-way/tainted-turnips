@@ -4,12 +4,13 @@
   align-items: center;
   box-sizing: border-box;
   padding: max(1rem, 5%);
+  padding-top: 0;
 
   h2 {
     color: var(--primary);
     text-transform: uppercase;
   }
-  
+
   & > div {
     display: flex;
     align-items: center;

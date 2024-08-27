@@ -2,7 +2,7 @@ import './Slide.css';
 import turnip from '../../assets/images/turnip.png';
 import { normalizeTime } from '../../utils';
 import PropTypes from 'prop-types';
-
+import { motion } from 'framer-motion';
 function Slide({ movie, handleClick, moreInfo }) {
   if (!movie) return <></>;
 
@@ -40,9 +40,15 @@ function Slide({ movie, handleClick, moreInfo }) {
       </div>
       {showMovieInfo()}
       {moreInfo && (
-        <button className='more-info' onClick={() => handleClick(id)}>
+        <motion.button
+          className='more-info'
+          onClick={() => handleClick(id)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring' }}
+        >
           More Info...
-        </button>
+        </motion.button>
       )}
     </div>
   );

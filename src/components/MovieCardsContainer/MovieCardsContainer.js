@@ -7,7 +7,7 @@ function MovieCardsContainer({ title, movies, handleClick }) {
     <section className='movie-cards-container'>
       <h2>{title}</h2>
       <div>
-        {movies.map(movie => (
+        {movies.map((movie, idx) => (
           <MovieCard key={movie.id} movie={movie} handleClick={handleClick} />
         ))}
       </div>

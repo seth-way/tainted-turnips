@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import turnip from '../../assets/images/turnip.png';
 import PropTypes from 'prop-types';
 
-function MovieCard({ movie, handleClick }) {
+function MovieCard({ movie, handleClick, sticker }) {
   const { id, poster_path, title, average_rating } = movie;
 
   return (
@@ -25,6 +25,9 @@ function MovieCard({ movie, handleClick }) {
           <h3>{title}</h3>
         </div>
       </div>
+      <h4 className='sticker' sticker={sticker}>
+          {sticker}
+        </h4>
     </div>
   );
 }
@@ -37,6 +40,7 @@ MovieCard.propTypes = {
     average_rating: PropTypes.number.isRequired,
   }).isRequired,
   handleClick: PropTypes.func.isRequired,
+  sticker: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default MovieCard;

@@ -2,12 +2,37 @@ import './NavBar.css';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import turnip from '../../assets/images/turnip.png';
+import popcorn from '../../assets/images/popcorn.png';
+import movieTime from '../../assets/images/movie-time.png';
 
 function NavBar({ handleClick }) {
   return (
     <nav>
       <div className='content'>
-        <button onClick={handleClick}>
+        <motion.div
+          className='retro-popcorn'
+          whileHover={{
+            rotate: 360,
+            translateX: '15px',
+          }}
+          whileTap={{ scale: 0.85 }}
+          transition={{ type: 'spring', duration: 1.5 }}
+        >
+          <motion.img
+            src={popcorn}
+            alt='retro popcorn cartoon character'
+            initial={{ x: '-400%', scale: 0 }}
+            animate={{ x: 0, scale: 1 }}
+            transition={{ type: 'spring', delay: 1.25 }}
+          />
+          <img src={movieTime} alt='movie time speech bubble'></img>
+        </motion.div>
+        <motion.button
+          onClick={handleClick}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring' }}
+        >
           <motion.h1
             initial={{ x: '400%', scale: 0 }}
             animate={{ x: 0, scale: 1 }}
@@ -23,7 +48,7 @@ function NavBar({ handleClick }) {
             animate={{ y: 0, scale: 1 }}
             transition={{ type: 'spring', delay: 1 }}
           />
-        </button>
+        </motion.button>
       </div>
     </nav>
   );

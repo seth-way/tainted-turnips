@@ -1,6 +1,7 @@
 import './AllMovies.css';
 import { useState, useEffect, Suspense } from 'react';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
+import MovieCardCarousel from '../MovieCardCarousel/MovieCardCarousel';
 import MovieCardsContainer from '../MovieCardsContainer/MovieCardsContainer';
 import LoadingSlide from '../LoadingSlide/LoadingSlide';
 import { getRecentMovies, getMoviesData } from '../../utils/movies';
@@ -25,7 +26,7 @@ function AllMovies({ allMovies, handleClick }) {
   }, [allMovies]);
 
   return (
-    <section id="all-movies">
+    <section id='all-movies'>
       {!error &&
         (carouselMovies.length ? (
           <HeroCarousel movies={carouselMovies} handleClick={handleClick} />
@@ -33,11 +34,18 @@ function AllMovies({ allMovies, handleClick }) {
           <LoadingSlide />
         ))}
       {allMovies.length ? (
-        <MovieCardsContainer
-          title='All Movies'
-          movies={allMovies}
-          handleClick={handleClick}
-        />
+        <>
+          <MovieCardCarousel
+            type='top 10'
+            movies={allMovies.slice(0, 10)}
+            handleClick={handleClick}
+          />
+          <MovieCardsContainer
+            title='All Movies'
+            movies={allMovies}
+            handleClick={handleClick}
+          />
+        </>
       ) : (
         <>
           <LoadingSlide />

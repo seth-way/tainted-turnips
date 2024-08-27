@@ -14,22 +14,28 @@ export default function CustomArrows() {
 
   return (
     <div className='nav-arrows-wrapper'>
-      {enablePrevNavButton && <motion.div
-        className="nav-arrow left-arrow"
-        onClick={goBack}
-        whileHover={{ opacity: 1, rotate: -360 }}
-        transition={{ type: 'spring' }}
-      >
-        <ArrowLeft />
-      </motion.div>}
-      {enableNextNavButton && <motion.div
-        className="nav-arrow right-arrow"
-        onClick={goForward}
-        whileHover={{ opacity: 1, rotate: 360 }}
-        transition={{ type: 'spring' }}
-      >
-        <ArrowRight />
-      </motion.div>}
+      {enablePrevNavButton && (
+        <motion.div
+          className='nav-arrow left-arrow'
+          onClick={goBack}
+          whileHover={{ opacity: 1, scale: 1.05 }}
+          whileTap={{ scale: 0.8 }}
+          transition={{ type: 'spring' }}
+        >
+          <ArrowLeft />
+        </motion.div>
+      )}
+      {enableNextNavButton && (
+        <motion.div
+          className='nav-arrow right-arrow'
+          onClick={goForward}
+          whileHover={{ opacity: 1, scale: 1.05 }}
+          whileTap={{ scale: 0.8 }}
+          transition={{ type: 'spring' }}
+        >
+          <ArrowRight />
+        </motion.div>
+      )}
     </div>
   );
 }

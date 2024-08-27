@@ -19,18 +19,35 @@
 
 .nav-dots {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
   z-index: 5;
+  height: 0.75rem;
   button.dot {
     background: white;
     height: 3px;
     width: 3px;
     border: none;
     border-radius: 9999px;
+    height: 0.75rem;
+    width: 0.75rem;
+    transition: all 0.5s ease-in-out;
   }
+
+  button.dot:hover {
+    transform: scale(1.2);
+  }
+
   button.current {
     background: var(--primary);
+    height: 1rem;
+    width: 1rem;
+    border: 2px solid white;
+  }
+
+  button.current:hover {
+    transform: scale(1);
   }
 
   button:hover {
