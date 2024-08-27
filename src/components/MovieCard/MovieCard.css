@@ -12,6 +12,10 @@
     var(--alt) 95% 100%
   );
 
+  .card-inside {
+    border: thin solid green;
+  }
+
   border-radius: 10px;
   padding: 0.35rem;
   margin: 1rem 0.5rem;
@@ -22,6 +26,34 @@
   position: relative;
   background-size: 100% 100%;
   animation: rotate-bg 44s linear infinite;
+
+  .sticker {
+    --size: clamp(2rem, 8vw, 5rem);
+    position: absolute;
+    font-family: 'Rowdies', sans-serif;
+    font-weight: 200;
+    font-size: var(--size);
+    left: 0;
+    top: 5%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin: 0;
+    z-index: 2;
+    color: var(--alt);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--accent);
+    @media (min-width: 350px) {
+      -webkit-text-stroke-width: 2px;
+    }
+  }
+
+  .sticker::before {
+    content: attr(sticker);
+    position: absolute;
+    color: var(--secondary);
+    height: 66%;
+    overflow: hidden;
+  }
 }
 
 .movie-card:hover {

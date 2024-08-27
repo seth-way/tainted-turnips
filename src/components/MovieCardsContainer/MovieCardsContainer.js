@@ -7,8 +7,13 @@ function MovieCardsContainer({ title, movies, handleClick }) {
     <section className='movie-cards-container'>
       <h2>{title}</h2>
       <div>
-        {movies.map(movie => (
-          <MovieCard key={movie.id} movie={movie} handleClick={handleClick} />
+        {movies.map((movie, idx) => (
+          <MovieCard
+            key={movie.id}
+            movie={movie}
+            handleClick={handleClick}
+            sticker={idx + 1}
+          />
         ))}
       </div>
     </section>
