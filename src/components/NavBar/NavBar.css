@@ -16,8 +16,23 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
-    img {
+    .retro-popcorn {
       height: 80%;
+      img {
+        height: 100%;
+      }
+      img:last-child {
+        box-sizing: border-box;
+        margin-left: -10%;
+        padding-bottom: 10%;
+        transform: scale(0);
+        transition: transform 0.5s ease-in-out;
+      }
+    }
+    .retro-popcorn:hover {
+      img:last-child {
+        transform: scale(1);
+      }
     }
     button {
       border: none;
@@ -46,7 +61,6 @@ nav {
     font-size: clamp(0.8rem, 5vw, 2rem);
     color: var(--primary);
     @media (min-width: 350px) {
-
       -webkit-text-stroke-width: 1px;
       -webkit-text-stroke-color: var(--alt);
     }
