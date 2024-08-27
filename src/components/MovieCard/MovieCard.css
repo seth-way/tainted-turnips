@@ -33,6 +33,7 @@
     font-family: 'Rowdies', sans-serif;
     font-weight: 200;
     font-size: var(--size);
+    text-shadow: 0 0 2px black;
     left: 0;
     top: 5%;
     transform: translateX(-50%);
@@ -53,6 +54,7 @@
     color: var(--secondary);
     height: 66%;
     overflow: hidden;
+    transition: height 1s ease-in-out;
   }
 }
 
@@ -61,6 +63,10 @@
 
   .title {
     color: var(--text-2);
+  }
+
+  .sticker::before {
+    height: 0%;
   }
 }
 
