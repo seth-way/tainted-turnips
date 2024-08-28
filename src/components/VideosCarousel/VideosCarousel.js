@@ -4,7 +4,7 @@ import { Carousel, useCarousel } from 'nuka-carousel';
 import CustomArrows from '../CustomArrows/CustomArrows';
 
 function VideosCarousel({ type, keys, title }) {
-  const baseURL = 'https://www.youtube.com/embed/';
+  const baseURL = 'https://www.youtube-nocookie.com/embed/';
 
   return (
     <div className='videos-carousel-container'>
@@ -16,11 +16,12 @@ function VideosCarousel({ type, keys, title }) {
         arrows={<CustomArrows />}
       >
         {keys.map((videoKey, idx) => (
-          <div className='iframe-wrapper'>
+          <div className='iframe-wrapper' key={videoKey}>
             <iframe
               src={baseURL + videoKey}
               title={`${title} ${type} ${idx + 1}`}
-              allow='fullscreen'
+              allow='picture-in-picture'
+              allowFullScreen={true}
             ></iframe>
           </div>
         ))}

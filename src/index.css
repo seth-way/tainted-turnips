@@ -3,7 +3,7 @@
   --yellow: #fccc0f;
   --purple: #9b5094;
   --blue: #4973b8;
-  --green: #85E374;
+  --green: #85e374;
   /*-- app colors --*/
   --bg: #0c1419;
   --bg-2: #23272f;
@@ -35,13 +35,22 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-    'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--bg);
   color: var(--text);
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
 }
 
 code {
