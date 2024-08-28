@@ -1,16 +1,13 @@
 import './ErrorMessage.css';
-import PropTypes from 'prop-types';
+import {useParams} from 'react-router-dom'
 
-function ErrorMessage({ error }) {
+function ErrorMessage() {
+  const {code} = useParams();
   return (
     <section>
-      <h2>{`Im sorry there is a ${error.code} Error`}</h2>
+      <h2>{`Im sorry there is a ${code} Error`}</h2>
     </section>
   );
 }
-
-ErrorMessage.propTypes = {
-  error: PropTypes.object.isRequired,
-};
 
 export default ErrorMessage;

@@ -1,6 +1,6 @@
 import './App.css';
-import { useState, useEffect, Suspense } from 'react';
-
+import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, redirect } from "react-router-dom";
 import AllMovies from '../AllMovies/AllMovies';
 import Footer from '../Footer/Footer';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
@@ -12,7 +12,7 @@ import LoadingSlide from '../LoadingSlide/LoadingSlide';
 function App() {
   const [allMovies, setMovies] = useState([]);
   const [featuredMovieId, setFeatured] = useState(null);
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const fetchMovies = async () => {
     const URL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies';
@@ -27,7 +27,7 @@ function App() {
       setMovies(movies);
     } catch (err) {
       console.error(err);
-      setError(err);
+      navigate(`/error/${err.code || err.statusCode}`)
     }
   };
 
@@ -35,27 +35,27 @@ function App() {
     fetchMovies();
   }, []);
 
-  const handleMovieClick = id => {
-    setFeatured(id);
-  };
-
-  const handleHomeClick = () => {
-    setFeatured(null);
-  };
 
   return (
     <main className='App'>
-      <NavBar handleClick={handleHomeClick} />
-        {error ? (
-          <ErrorMessage error={error} />
-        ) : featuredMovieId ? (
-          <SingleMovie movieId={featuredMovieId} />
-        ) : (
-          <AllMovies allMovies={allMovies} handleClick={handleMovieClick} />
-        )}
+      <NavBar />
+        <Routes>
+          <Route path="/tainted-turnips" element={<AllMovies allMovies={allMovies}/>}/>
+          <Route path="/" element={<AllMovies allMovies={allMovies}/>}/>
+          <Route path="/movies/:id" element={<SingleMovie/>}/>
+          <Route path="/error/:code" element={<ErrorMessage/>}/>
+        </Routes>
       <Footer />
     </main>
   );
 }
 
 export default App;
+
+      /* {error ? (
+          <ErrorMessage error={error} />
+        ) : featuredMovieId ? (
+          <SingleMovie movieId={featuredMovieId} />
+        ) : (
+          <AllMovies allMovies={allMovies} handleClick={handleMovieClick} />
+        )} */

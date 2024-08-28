@@ -1,9 +1,11 @@
 import './Slide.css';
+import { Link } from 'react-router-dom';
 import turnip from '../../assets/images/turnip.png';
 import { normalizeTime } from '../../utils';
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
-function Slide({ movie, handleClick, moreInfo }) {
+
+function Slide({ movie, moreInfo }) {
   if (!movie) return <></>;
 
   const { id, title, backdrop_path, average_rating, genres, runtime, tagline } =
@@ -40,15 +42,15 @@ function Slide({ movie, handleClick, moreInfo }) {
       </div>
       {showMovieInfo()}
       {moreInfo && (
+        <Link to={`/movies/${id}`}>
         <motion.button
           className='more-info'
-          onClick={() => handleClick(id)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.9 }}
           transition={{ type: 'spring' }}
         >
           More Info...
-        </motion.button>
+        </motion.button></Link>
       )}
     </div>
   );
@@ -64,7 +66,6 @@ Slide.propTypes = {
     runtime: PropTypes.number.isRequired,
     tagline: PropTypes.string.isRequired,
   }).isRequired,
-  handleClick: PropTypes.func,
   moreInfo: PropTypes.bool,
 };
 

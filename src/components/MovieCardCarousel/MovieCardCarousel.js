@@ -3,7 +3,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import { Carousel, useCarousel } from 'nuka-carousel';
 import CustomArrows from '../CustomArrows/CustomArrows';
 
-function MovieCardCarousel({ movies, type, handleClick }) {
+function MovieCardCarousel({ movies, type }) {
   const noSpaces = type.split(' ').join('-');
   return (
     <section className='card-carousel'>
@@ -18,7 +18,6 @@ function MovieCardCarousel({ movies, type, handleClick }) {
           <MovieCard
             key={`${noSpaces}-${movie.id}-card`}
             movie={movie}
-            handleClick={handleClick}
             sticker={idx + 1}
           />
         ))}
