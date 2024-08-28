@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tainted-turnips/static/css/main.77c26c8e.css",
-    "main.js": "/tainted-turnips/static/js/main.d01e864b.js",
+    "main.js": "/tainted-turnips/static/js/main.9084bdca.js",
     "static/js/453.bb6d90c4.chunk.js": "/tainted-turnips/static/js/453.bb6d90c4.chunk.js",
     "static/media/popcorn.png": "/tainted-turnips/static/media/popcorn.bd8db557882022ae3b43.png",
     "static/media/movie-time.png": "/tainted-turnips/static/media/movie-time.b3221e9b60b4cfce8c83.png",
@@ -13,11 +13,11 @@
     "static/media/caret_right.svg": "/tainted-turnips/static/media/caret_right.f6e9af142c56a40d75bb25847ea1881e.svg",
     "static/media/linkedin.svg": "/tainted-turnips/static/media/linkedin.454ce39ccac4650ca646596a17be4662.svg",
     "main.77c26c8e.css.map": "/tainted-turnips/static/css/main.77c26c8e.css.map",
-    "main.d01e864b.js.map": "/tainted-turnips/static/js/main.d01e864b.js.map",
+    "main.9084bdca.js.map": "/tainted-turnips/static/js/main.9084bdca.js.map",
     "453.bb6d90c4.chunk.js.map": "/tainted-turnips/static/js/453.bb6d90c4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.77c26c8e.css",
-    "static/js/main.d01e864b.js"
+    "static/js/main.9084bdca.js"
   ]
 }
