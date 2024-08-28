@@ -22,6 +22,12 @@ A react-based, movie app that allows users to view, filter and discover movie ti
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
 
+#### Desktop:
+<picture><img src="/docs/desktop-navigation.gif" alt="app navigation preview on desktop" width="650px"/></picture>
+
+#### Mobile:
+<picture><img src="/docs/mobile-navigation.gif" alt="app navigation preview on mobile" width="250px"/></picture>
+
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
 
