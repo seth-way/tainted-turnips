@@ -36,7 +36,7 @@ function Slide({ movie, moreInfo }) {
 
   return (
     <div className='slide' style={{ backgroundImage: `url(${backdrop_path})` }}>
-      <p className='tagline'>{tagline}</p>
+      {tagline.length && <p className='tagline'>{tagline}</p>}
       <div className='title'>
         <h2>{title}</h2>
       </div>

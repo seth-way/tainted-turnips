@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, redirect } from "react-router-dom";
+import { Routes, Route, useNavigate, redirect } from 'react-router-dom';
 import AllMovies from '../AllMovies/AllMovies';
 import Footer from '../Footer/Footer';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
@@ -27,7 +27,7 @@ function App() {
       setMovies(movies);
     } catch (err) {
       console.error(err);
-      navigate(`/error/${err.code || err.statusCode}`)
+      navigate(`/error/${err.code || err.statusCode}`);
     }
   };
 
@@ -35,16 +35,14 @@ function App() {
     fetchMovies();
   }, []);
 
-
   return (
     <main className='App'>
       <NavBar />
-        <Routes>
-          <Route path="/tainted-turnips" element={<AllMovies allMovies={allMovies}/>}/>
-          <Route path="/" element={<AllMovies allMovies={allMovies}/>}/>
-          <Route path="/movies/:id" element={<SingleMovie/>}/>
-          <Route path="/error/:code" element={<ErrorMessage/>}/>
-        </Routes>
+      <Routes>
+        <Route path='/' element={<AllMovies allMovies={allMovies} />} />
+        <Route path='/movies/:id' element={<SingleMovie />} />
+        <Route path='/error/:code' element={<ErrorMessage />} />
+      </Routes>
       <Footer />
     </main>
   );
@@ -52,7 +50,7 @@ function App() {
 
 export default App;
 
-      /* {error ? (
+/* {error ? (
           <ErrorMessage error={error} />
         ) : featuredMovieId ? (
           <SingleMovie movieId={featuredMovieId} />
