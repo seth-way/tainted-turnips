@@ -1,6 +1,12 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, redirect } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  useNavigate,
+  redirect,
+  HashRouter,
+} from 'react-router-dom';
 import AllMovies from '../AllMovies/AllMovies';
 import Footer from '../Footer/Footer';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
@@ -39,7 +45,7 @@ function App() {
     <main className='App'>
       <NavBar />
       <Routes>
-        <Route path='/' element={<AllMovies allMovies={allMovies} />} />
+        <Route exact path='/' element={<AllMovies allMovies={allMovies} />} />
         <Route path='/movies/:id' element={<SingleMovie />} />
         <Route path='/error/:code' element={<ErrorMessage />} />
       </Routes>
@@ -49,11 +55,3 @@ function App() {
 }
 
 export default App;
-
-/* {error ? (
-          <ErrorMessage error={error} />
-        ) : featuredMovieId ? (
-          <SingleMovie movieId={featuredMovieId} />
-        ) : (
-          <AllMovies allMovies={allMovies} handleClick={handleMovieClick} />
-        )} */
