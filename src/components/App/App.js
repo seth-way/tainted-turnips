@@ -1,23 +1,14 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import {
-  Routes,
-  Route,
-  useNavigate,
-  redirect,
-  HashRouter,
-} from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import AllMovies from '../AllMovies/AllMovies';
 import Footer from '../Footer/Footer';
-import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import NavBar from '../NavBar/NavBar';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import LoadingSlide from '../LoadingSlide/LoadingSlide';
 
 function App() {
   const [allMovies, setMovies] = useState([]);
-  const [featuredMovieId, setFeatured] = useState(null);
   const navigate = useNavigate();
 
   const fetchMovies = async () => {

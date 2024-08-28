@@ -1,16 +1,20 @@
 import './AllMovies.css';
 import { useState, useEffect } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import MovieCardCarousel from '../MovieCardCarousel/MovieCardCarousel';
 import MovieCardsContainer from '../MovieCardsContainer/MovieCardsContainer';
 import LoadingSlide from '../LoadingSlide/LoadingSlide';
-import { getRecentMovies, getMoviesData } from '../../utils/movies';
+import {
+  getTopRatedMovies,
+  getRecentMovies,
+  getMoviesData,
+} from '../../utils/movies';
 import PropTypes from 'prop-types';
 function AllMovies({ allMovies }) {
   const [carouselMovies, setCarousel] = useState([]);
+  const [topMovies, setTopMovies] = useState([]);
   const navigate = useNavigate();
-  //const [error, setError] = useState(null);
 
   useEffect(() => {
     const getCarouselMovies = async () => {
@@ -20,30 +24,27 @@ function AllMovies({ allMovies }) {
         setCarousel(() => movies);
       } catch (err) {
         console.error(err);
-        navigate(`/error/${err.code || err.statusCode}`)
+        navigate(`/error/${err.code || err.statusCode}`);
       }
     };
 
-    if (allMovies.length) getCarouselMovies();
+    if (allMovies.length) {
+      getCarouselMovies();
+      setTopMovies(getTopRatedMovies(allMovies));
+    }
   }, [allMovies]);
 
   return (
     <section id='all-movies'>
       {carouselMovies.length ? (
-          <HeroCarousel movies={carouselMovies} />
-        ) : (
-          <LoadingSlide />
-        )}
+        <HeroCarousel movies={carouselMovies} />
+      ) : (
+        <LoadingSlide />
+      )}
       {allMovies.length ? (
         <>
-          <MovieCardCarousel
-            type='top 10'
-            movies={allMovies.slice(0, 10)}
-          />
-          <MovieCardsContainer
-            title='All Movies'
-            movies={allMovies}
-          />
+          <MovieCardCarousel type='top 10' movies={topMovies} />
+          <MovieCardsContainer title='All Movies' movies={allMovies} />
         </>
       ) : (
         <>
