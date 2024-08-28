@@ -29,6 +29,7 @@ function NavBar() {
         </motion.div>
         <Link to='/'>
           <motion.button
+            id='home-btn'
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring' }}

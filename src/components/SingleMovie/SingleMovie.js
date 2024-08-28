@@ -8,7 +8,7 @@ import { convertToCurrency, normalizeDate } from '../../utils';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 function SingleMovie() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ function SingleMovie() {
       const movieRes = await fetch(URL + id);
       if (!movieRes.ok) {
         const error = new Error(movieRes.statusText);
+        console.log('<>1<>1<>');
         error.code = movieRes.status;
         throw error;
       }
@@ -27,6 +28,7 @@ function SingleMovie() {
       const videosRes = await fetch(URL + id + '/videos');
       if (!videosRes.ok) {
         const error = new Error(videosRes.statusText);
+        console.log('<>2<>2<>');
         error.code = videosRes.status;
         throw error;
       }
@@ -34,7 +36,8 @@ function SingleMovie() {
       setVideos(videos);
     } catch (err) {
       console.error(err);
-      navigate(`/error/${err.code || err.statusCode}`)
+      if (!err.code) navigate('/error/404');
+      else navigate(`/error/${err.code}`);
     }
   };
 
