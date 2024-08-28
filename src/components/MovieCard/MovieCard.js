@@ -1,13 +1,14 @@
 import './MovieCard.css';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import turnip from '../../assets/images/turnip.png';
 import PropTypes from 'prop-types';
 
-function MovieCard({ movie, handleClick, sticker }) {
+function MovieCard({ movie,sticker }) {
   const { id, poster_path, title, average_rating } = movie;
 
   return (
-    <div className='movie-card' onClick={() => handleClick(id)}>
+    <Link to={`/movies/${id}`} className='movie-card'>
       <div className='card-inside'>
         <div className='img-wrapper'>
           <motion.img
@@ -28,7 +29,7 @@ function MovieCard({ movie, handleClick, sticker }) {
       <h4 className='sticker' sticker={sticker}>
           {sticker}
         </h4>
-    </div>
+    </Link>
   );
 }
 
@@ -39,7 +40,6 @@ MovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     average_rating: PropTypes.number.isRequired,
   }).isRequired,
-  handleClick: PropTypes.func.isRequired,
   sticker: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 

@@ -27,7 +27,7 @@ export const CustomDots = () => {
   );
 };
 
-function HeroCarousel({ movies, handleClick }) {
+function HeroCarousel({ movies }) {
   return (
     <div className='carousel'>
       <Carousel
@@ -41,7 +41,6 @@ function HeroCarousel({ movies, handleClick }) {
           <Slide
             movie={movie}
             key={`${idx}-hero-slide`}
-            handleClick={handleClick}
             moreInfo
           />
         ))}
@@ -52,7 +51,6 @@ function HeroCarousel({ movies, handleClick }) {
 
 HeroCarousel.propTypes = {
   movies: PropTypes.array.isRequired,
-  handleClick: PropTypes.func.isRequired,
 };
 
 export default HeroCarousel;

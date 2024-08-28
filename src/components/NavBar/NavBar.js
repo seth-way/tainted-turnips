@@ -1,11 +1,11 @@
 import './NavBar.css';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import turnip from '../../assets/images/turnip.png';
 import popcorn from '../../assets/images/popcorn.png';
 import movieTime from '../../assets/images/movie-time.png';
 
-function NavBar({ handleClick }) {
+function NavBar() {
   return (
     <nav>
       <div className='content'>
@@ -27,8 +27,8 @@ function NavBar({ handleClick }) {
           />
           <img src={movieTime} alt='movie time speech bubble'></img>
         </motion.div>
+        <Link to="/">
         <motion.button
-          onClick={handleClick}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.9 }}
           transition={{ type: 'spring' }}
@@ -49,13 +49,12 @@ function NavBar({ handleClick }) {
             transition={{ type: 'spring', delay: 1 }}
           />
         </motion.button>
+        </Link>
       </div>
     </nav>
   );
 }
 
-NavBar.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-};
+
 
 export default NavBar;

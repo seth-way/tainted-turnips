@@ -1,20 +1,22 @@
 import './SingleMovie.css';
 import { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Slide from '../Slide/Slide';
 import Videos from '../Videos/Videos';
+import LoadingSlide from '../LoadingSlide/LoadingSlide';
 import { convertToCurrency, normalizeDate } from '../../utils';
-import PropTypes from 'prop-types';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
-function SingleMovie({ movieId }) {
+function SingleMovie() {
+  const {id} = useParams();
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const fetchMovie = async () => {
     const URL = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/';
     try {
-      const movieRes = await fetch(URL + movieId);
+      const movieRes = await fetch(URL + id);
       if (!movieRes.ok) {
         const error = new Error(movieRes.statusText);
         error.code = movieRes.status;
@@ -22,7 +24,7 @@ function SingleMovie({ movieId }) {
       }
       const { movie } = await movieRes.json();
       setMovie(movie);
-      const videosRes = await fetch(URL + movieId + '/videos');
+      const videosRes = await fetch(URL + id + '/videos');
       if (!videosRes.ok) {
         const error = new Error(videosRes.statusText);
         error.code = videosRes.status;
@@ -32,25 +34,23 @@ function SingleMovie({ movieId }) {
       setVideos(videos);
     } catch (err) {
       console.error(err);
-      setError(err);
+      navigate(`/error/${err.code || err.statusCode}`)
     }
   };
 
   useEffect(() => {
-    if (movieId) {
+    if (id) {
       fetchMovie();
     } else {
       setMovie(null);
       setVideos([]);
     }
-  }, [movieId]);
+  }, []);
 
-  if (error) return <ErrorMessage error={error} />;
-  if (!movie) return <h2>loading movie...</h2>;
+  if (!movie) return <LoadingSlide />;
 
   const { title, release_date, overview, budget, revenue } = movie;
-  console.log('rev <><>', revenue);
-  console.log('budget <><>', budget);
+
   return (
     <section className='single-movie-view'>
       <Slide movie={movie} />
@@ -89,9 +89,5 @@ function SingleMovie({ movieId }) {
     </section>
   );
 }
-
-SingleMovie.propTypes = {
-  movieId: PropTypes.number.isRequired,
-};
 
 export default SingleMovie;

@@ -1,14 +1,16 @@
 import './AllMovies.css';
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate} from 'react-router-dom';
 import HeroCarousel from '../HeroCarousel/HeroCarousel';
 import MovieCardCarousel from '../MovieCardCarousel/MovieCardCarousel';
 import MovieCardsContainer from '../MovieCardsContainer/MovieCardsContainer';
 import LoadingSlide from '../LoadingSlide/LoadingSlide';
 import { getRecentMovies, getMoviesData } from '../../utils/movies';
 import PropTypes from 'prop-types';
-function AllMovies({ allMovies, handleClick }) {
+function AllMovies({ allMovies }) {
   const [carouselMovies, setCarousel] = useState([]);
-  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  //const [error, setError] = useState(null);
 
   useEffect(() => {
     const getCarouselMovies = async () => {
@@ -18,7 +20,7 @@ function AllMovies({ allMovies, handleClick }) {
         setCarousel(() => movies);
       } catch (err) {
         console.error(err);
-        setError(err);
+        navigate(`/error/${err.code || err.statusCode}`)
       }
     };
 
@@ -27,23 +29,20 @@ function AllMovies({ allMovies, handleClick }) {
 
   return (
     <section id='all-movies'>
-      {!error &&
-        (carouselMovies.length ? (
-          <HeroCarousel movies={carouselMovies} handleClick={handleClick} />
+      {carouselMovies.length ? (
+          <HeroCarousel movies={carouselMovies} />
         ) : (
           <LoadingSlide />
-        ))}
+        )}
       {allMovies.length ? (
         <>
           <MovieCardCarousel
             type='top 10'
             movies={allMovies.slice(0, 10)}
-            handleClick={handleClick}
           />
           <MovieCardsContainer
             title='All Movies'
             movies={allMovies}
-            handleClick={handleClick}
           />
         </>
       ) : (
@@ -59,7 +58,6 @@ function AllMovies({ allMovies, handleClick }) {
 
 AllMovies.propTypes = {
   allMovies: PropTypes.array.isRequired,
-  handleClick: PropTypes.func.isRequired,
 };
 
 export default AllMovies;
