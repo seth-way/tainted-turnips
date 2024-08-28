@@ -49,7 +49,6 @@ function AllMovies({ allMovies }) {
         <>
           <LoadingSlide />
           <LoadingSlide />
-          <LoadingSlide />
         </>
       )}
     </section>

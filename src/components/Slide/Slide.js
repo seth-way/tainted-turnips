@@ -43,14 +43,15 @@ function Slide({ movie, moreInfo }) {
       {showMovieInfo()}
       {moreInfo && (
         <Link to={`/movies/${id}`}>
-        <motion.button
-          className='more-info'
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ type: 'spring' }}
-        >
-          More Info...
-        </motion.button></Link>
+          <motion.button
+            className='more-info'
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring' }}
+          >
+            More Info...
+          </motion.button>
+        </Link>
       )}
     </div>
   );
