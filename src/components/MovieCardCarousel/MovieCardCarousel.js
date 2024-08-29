@@ -21,7 +21,6 @@ function MovieCardCarousel({ movies, type }) {
             sticker={idx + 1}
           />
         ))}
-        {/* <div className='movie-card'></div> */}
       </Carousel>
     </section>
   );

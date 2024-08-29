@@ -40,6 +40,7 @@
       ul {
         margin: 0;
         padding-left: 1rem;
+
         p {
           padding-left: 0;
         }
@@ -59,10 +60,12 @@
         text-align: left;
         text-indent: 1.5rem;
       }
+
       @media screen and (max-width: 600px) {
         width: 100%;
       }
     }
+
     @media screen and (max-width: 600px) {
       width: 100%;
     }

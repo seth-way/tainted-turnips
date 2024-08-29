@@ -1,5 +1,5 @@
 export const getTopRatedMovies = movies => {
-  const sortedByRating = movies.sort(
+  const sortedByRating = [...movies].sort(
     (a, b) => b.average_rating - a.average_rating
   );
 

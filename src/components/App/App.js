@@ -39,6 +39,7 @@ function App() {
         <Route exact path='/' element={<AllMovies allMovies={allMovies} />} />
         <Route path='/movies/:id' element={<SingleMovie />} />
         <Route path='/error/:code' element={<ErrorMessage />} />
+        <Route path='*' element={<ErrorMessage />} />
       </Routes>
       <Footer />
     </main>

@@ -5,7 +5,6 @@ import Slide from '../Slide/Slide';
 import Videos from '../Videos/Videos';
 import LoadingSlide from '../LoadingSlide/LoadingSlide';
 import { convertToCurrency, normalizeDate } from '../../utils';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 function SingleMovie() {
   const { id } = useParams();
@@ -19,7 +18,6 @@ function SingleMovie() {
       const movieRes = await fetch(URL + id);
       if (!movieRes.ok) {
         const error = new Error(movieRes.statusText);
-        console.log('<>1<>1<>');
         error.code = movieRes.status;
         throw error;
       }
@@ -28,7 +26,6 @@ function SingleMovie() {
       const videosRes = await fetch(URL + id + '/videos');
       if (!videosRes.ok) {
         const error = new Error(videosRes.statusText);
-        console.log('<>2<>2<>');
         error.code = videosRes.status;
         throw error;
       }

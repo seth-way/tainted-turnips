@@ -36,7 +36,7 @@ function HeroCarousel({ movies }) {
         dots={<CustomDots />}
         wrapMode='wrap'
         autoplayInterval={3000}
-        id="hero-carousel"
+        id='hero-carousel'
       >
         {movies.map((movie, idx) => (
           <Slide movie={movie} key={`${idx}-hero-slide`} moreInfo />
