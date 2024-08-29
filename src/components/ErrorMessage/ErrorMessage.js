@@ -1,11 +1,15 @@
 import './ErrorMessage.css';
-import {useParams} from 'react-router-dom'
+import { useParams } from 'react-router-dom';
 
 function ErrorMessage() {
-  const {code} = useParams();
+  const { code } = useParams();
   return (
-    <section>
-      <h2>{`Im sorry there is a ${code} Error`}</h2>
+    <section className='error'>
+      {code ? (
+        <h2>{`We're sorry!!! There was a ${code} Error`}</h2>
+      ) : (
+        <h2>Page Not Found</h2>
+      )}
     </section>
   );
 }

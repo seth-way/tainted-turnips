@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import turnip from '../../assets/images/turnip.png';
 import PropTypes from 'prop-types';
 
-function MovieCard({ movie,sticker }) {
+function MovieCard({ movie, sticker }) {
   const { id, poster_path, title, average_rating } = movie;
 
   return (
@@ -27,8 +27,8 @@ function MovieCard({ movie,sticker }) {
         </div>
       </div>
       <h4 className='sticker' sticker={sticker}>
-          {sticker}
-        </h4>
+        {sticker}
+      </h4>
     </Link>
   );
 }

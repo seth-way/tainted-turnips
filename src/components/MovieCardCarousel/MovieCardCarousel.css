@@ -27,11 +27,6 @@ section.card-carousel {
       min-width: clamp(75px, 12vw, 190px);
     }
 
-    /* .movie-card:last-child {
-      opacity: 0;
-      pointer-events: none;
-    } */
-
     .nav-arrows-wrapper {
       padding: 1.5rem;
       box-sizing: border-box;

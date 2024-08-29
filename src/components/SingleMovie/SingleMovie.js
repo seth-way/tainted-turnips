@@ -5,10 +5,9 @@ import Slide from '../Slide/Slide';
 import Videos from '../Videos/Videos';
 import LoadingSlide from '../LoadingSlide/LoadingSlide';
 import { convertToCurrency, normalizeDate } from '../../utils';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 function SingleMovie() {
-  const {id} = useParams();
+  const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [videos, setVideos] = useState([]);
   const navigate = useNavigate();
@@ -34,7 +33,8 @@ function SingleMovie() {
       setVideos(videos);
     } catch (err) {
       console.error(err);
-      navigate(`/error/${err.code || err.statusCode}`)
+      if (!err.code) navigate('/error/404');
+      else navigate(`/error/${err.code}`);
     }
   };
 

@@ -38,7 +38,7 @@ nav {
         transform: scale(1);
       }
     }
-    button {
+    #home-btn {
       border: none;
       background: transparent;
       height: 100%;
@@ -52,7 +52,7 @@ nav {
       }
     }
 
-    button:hover {
+    #home-btn:hover {
       cursor: pointer;
     }
   }

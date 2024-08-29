@@ -1,3 +1,11 @@
+export const getTopRatedMovies = movies => {
+  const sortedByRating = [...movies].sort(
+    (a, b) => b.average_rating - a.average_rating
+  );
+
+  return sortedByRating.slice(0, 10);
+};
+
 export const getRecentMovies = movies => {
   const sortedByDate = movies.sort(
     (a, b) => new Date(b.release_date) - new Date(a.release_date)
