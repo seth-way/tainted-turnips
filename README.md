@@ -31,6 +31,8 @@ A react-based, movie app that allows users to view, filter and discover movie ti
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
 
+This group project took 2 Turing students roughly 10 days or 30 hours to complete. We were in our 13th week of intensive front-end web development training.
+
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
 
@@ -46,3 +48,6 @@ This project was built by [Marshall Hotaling](https://github.com/marshallhotalin
 
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+
+- When trying to deploy this site to GitHub pages, it did not work well with the BrowserRouter we used for page navigation. After thorough research, we refactored our router to use a HashRouter and were able to successfully deploy a working version of our app.
+- This app was our first introduction to working with Cypress's testing suite. It is a robust and powerful library but it can be challenging to maneuver initially. We were able to successfully test and validate our entire app's UI, as well as any sad paths that could happen due to possible network errors.
